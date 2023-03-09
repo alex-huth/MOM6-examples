@@ -1,9 +1,11 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
-	url = https://github.com/NOAA-GFDL/MOM6.git
+	url = https://github.com/alex-huth/MOM6.git
+#	url = https://github.com/NOAA-GFDL/MOM6.git
 [submodule "src/SIS2"]
 	path = src/SIS2
-	url = https://github.com/NOAA-GFDL/SIS2.git
+	url = https://github.com/alex-huth/SIS2.git
+#	url = https://github.com/NOAA-GFDL/SIS2.git
 [submodule "tools/matlab/gtools"]
 	path = tools/matlab/gtools
 	url = https://github.com/Adcroft/gtools.git
@@ -12,10 +14,12 @@
 	url = https://github.com/mjharriso/MIDAS.git
 [submodule "src/icebergs"]
 	path = src/icebergs
-	url = https://github.com/NOAA-GFDL/icebergs.git
+	url = https://github.com/alex-huth/icebergs.git
+#	url = https://github.com/NOAA-GFDL/icebergs.git
 [submodule "src/coupler"]
 	path = src/coupler
-	url = https://github.com/NOAA-GFDL/coupler.git
+	url = https://github.com/alex-huth/FMScoupler.git
+#	url = https://github.com/NOAA-GFDL/coupler.git
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
