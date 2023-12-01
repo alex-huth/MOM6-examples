@@ -7,5 +7,5 @@ mkdir -p build/ice_oceanFMS2_SIS2_c4_nonsym/
 
 cd build/ice_oceanFMS2_SIS2_c4_nonsym/
 source ../env_c4_b
-make REPRO=1 MOM6 -j
+make DEBUG=1 MOM6 -j
 cd ../..
