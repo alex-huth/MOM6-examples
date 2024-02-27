@@ -1,11 +1,11 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
 	url = https://github.com/alex-huth/MOM6.git
-#	url = https://github.com/NOAA-GFDL/MOM6.git
+	branch = iOM4_with_bergs
 [submodule "src/SIS2"]
 	path = src/SIS2
 	url = https://github.com/alex-huth/SIS2.git
-#	url = https://github.com/NOAA-GFDL/SIS2.git
+	branch = aeh_merge_iOM4_with_bergs
 [submodule "tools/matlab/gtools"]
 	path = tools/matlab/gtools
 	url = https://github.com/Adcroft/gtools.git
@@ -15,32 +15,38 @@
 [submodule "src/icebergs"]
 	path = src/icebergs
 	url = https://github.com/alex-huth/icebergs.git
-#	url = https://github.com/NOAA-GFDL/icebergs.git
+	branch = iOM4_with_bergs
 [submodule "src/coupler"]
 	path = src/coupler
 	url = https://github.com/alex-huth/FMScoupler.git
-#	url = https://github.com/NOAA-GFDL/coupler.git
+	branch = iOM4_with_bergs
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
+	branch = master
 [submodule "src/land_null"]
 	path = src/land_null
 	url = https://github.com/NOAA-GFDL/land_null.git
+	branch = master
 [submodule "src/mkmf"]
 	path = src/mkmf
 	url = https://github.com/mom-ocean/mkmf.git
+	branch = mom6
 [submodule "tools/analysis/mpl-cmocean"]
 	path = tools/analysis/mpl-cmocean
 	url = https://github.com/matplotlib/cmocean.git
 [submodule "src/ice_param"]
 	path = src/ice_param
 	url = https://github.com/NOAA-GFDL/ice_param.git
+	branch = master
 [submodule "src/FMS1"]
 	path = src/FMS1
-	url = https://github.com/NOAA-GFDL/FMS
+	url = https://github.com/alex-huth/FMS
 [submodule "src/FMS2"]
 	path = src/FMS2
-	url = https://github.com/NOAA-GFDL/FMS
+	url= https://github.com/alex-huth/FMS
+	branch = iOM4_with_bergs_SMB
 [submodule "src/Icepack"]
 	path = src/Icepack
 	url = https://github.com/CICE-Consortium/Icepack.git
+	branch = main
