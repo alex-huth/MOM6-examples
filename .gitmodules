@@ -45,7 +45,7 @@
 [submodule "src/FMS2"]
 	path = src/FMS2
 	url= https://github.com/alex-huth/FMS
-	branch = iOM4_with_bergs_SMB
+	branch = iOM4_with_bergs_SMB2
 [submodule "src/Icepack"]
 	path = src/Icepack
 	url = https://github.com/CICE-Consortium/Icepack.git
