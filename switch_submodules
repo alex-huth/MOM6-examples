@@ -1,0 +1,11 @@
+cd ./src/MOM6
+git switch ice_shelf_to_iKID_new
+cd ../SIS2
+git switch ice_shelf_to_iKID
+cd ../icebergs
+git switch ice_shelf_to_iKID
+cd ../coupler
+git switch ice_shelf_to_iKID
+cd ../FMS2
+git switch iOM4_with_bergs_SMB
+cd ../..
