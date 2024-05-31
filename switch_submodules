@@ -1,0 +1,12 @@
+cd ./src/MOM6
+git switch iOM4_with_bergs_merge_dev/gfdl
+cd ../SIS2
+git switch aeh_merge_iOM4_with_bergs
+cd ../icebergs
+git switch iOM4_with_bergs
+cd ../coupler
+git switch iOM4_with_bergs_rebase
+cd ../mkmf
+git switch c5
+cd ../FMS2
+git switch iOM4_with_bergs_SMB
