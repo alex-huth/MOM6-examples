@@ -10,3 +10,4 @@ cd ../mkmf
 git switch c5
 cd ../FMS2
 git switch iOM4_with_bergs_SMB
+cd ../..
