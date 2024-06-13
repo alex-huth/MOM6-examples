@@ -5,7 +5,7 @@
 [submodule "src/SIS2"]
 	path = src/SIS2
 	url = https://github.com/alex-huth/SIS2.git
-	branch = aeh_merge_iOM4_with_bergs
+	branch = aeh_merge_iOM4_with_bergs_icepack1.3.3
 [submodule "tools/matlab/gtools"]
 	path = tools/matlab/gtools
 	url = https://github.com/Adcroft/gtools.git
