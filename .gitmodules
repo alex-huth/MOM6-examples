@@ -23,11 +23,11 @@
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
-	branch = master
+	branch = main
 [submodule "src/land_null"]
 	path = src/land_null
 	url = https://github.com/NOAA-GFDL/land_null.git
-	branch = master
+	branch = main
 [submodule "src/mkmf"]
 	path = src/mkmf
 	url = https://github.com/mom-ocean/mkmf.git
@@ -38,7 +38,7 @@
 [submodule "src/ice_param"]
 	path = src/ice_param
 	url = https://github.com/NOAA-GFDL/ice_param.git
-	branch = master
+	branch = main
 [submodule "src/FMS1"]
 	path = src/FMS1
 	url = https://github.com/alex-huth/FMS
