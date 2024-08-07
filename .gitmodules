@@ -1,7 +1,7 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
 	url = https://github.com/alex-huth/MOM6.git
-	branch =   iOM4_with_bergs_merge_dev/gfdl
+	branch =   iOM4_with_bergs_SMB_rebase
 [submodule "src/SIS2"]
 	path = src/SIS2
 	url = https://github.com/alex-huth/SIS2.git
@@ -19,7 +19,7 @@
 [submodule "src/coupler"]
 	path = src/coupler
 	url = https://github.com/alex-huth/FMScoupler.git
-	branch = iOM4_with_bergs_rebase
+	branch = iOM4_with_bergs_SMB_rebase
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
@@ -27,7 +27,7 @@
 [submodule "src/land_null"]
 	path = src/land_null
 	url = https://github.com/NOAA-GFDL/land_null.git
-	branch = main
+	branch = iOM4_with_bergs_SMB
 [submodule "src/mkmf"]
 	path = src/mkmf
 	url = https://github.com/mom-ocean/mkmf.git
