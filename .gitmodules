@@ -14,8 +14,8 @@
 	url = https://github.com/mjharriso/MIDAS.git
 [submodule "src/icebergs"]
 	path = src/icebergs
-	url = https://github.com/alex-huth/icebergs.git
-	branch = iOM4_with_bergs
+	url = https://github.com/NOAA-GFDL/icebergs.git
+	branch = dev/gfdl
 [submodule "src/coupler"]
 	path = src/coupler
 	url = https://github.com/alex-huth/FMScoupler.git
