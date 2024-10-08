@@ -1,9 +1,9 @@
 cd ./src/MOM6
-git switch iOM4_with_bergs_merge_dev/gfdl
+git switch dev/gfdl
 cd ../SIS2
-git switch aeh_merge_iOM4_with_bergs
+git switch aeh_merge_iOM4_with_bergs_icepack1.3.3
 cd ../icebergs
-git switch iOM4_with_bergs
+git switch dev/gfdl
 cd ../coupler
 git switch iOM4_with_bergs_rebase
 cd ../mkmf

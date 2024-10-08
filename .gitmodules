@@ -1,7 +1,7 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
 	url = https://github.com/alex-huth/MOM6.git
-	branch =   iOM4_with_bergs_merge_dev/gfdl
+	branch = dev/gfdl
 [submodule "src/SIS2"]
 	path = src/SIS2
 	url = https://github.com/alex-huth/SIS2.git
