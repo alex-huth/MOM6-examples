@@ -1,0 +1,23 @@
+module unload PrgEnv-pgi
+module unload PrgEnv-pathscale
+module unload PrgEnv-intel
+module unload PrgEnv-gnu
+module unload PrgEnv-cray
+
+# module load PrgEnv-intel #pre Oct 14 2024
+# module load intel-classic/2022.0.2 #pre Oct 14 2024
+
+
+# Below is for post-Oct 14,2024 compiler updates
+# Works if using ../src/mkmf/templates/ncrc5-intel.mk, but could not get the ncrc-intel.mk to work for FMS2?
+# Did not investigate this much. Other intel-classics may work.
+module load PrgEnv-intel #post Oct 14 2024
+module load intel-classic/2023.2.0 #post Oct 14 2024?
+
+
+module load cray-hdf5
+module load cray-netcdf
+
+# module switch cray-libsci/22.10.1.2 #pre Oct 14 2024
+module switch cray-libsci/24.03.0 #post Oct 14 2024
+
