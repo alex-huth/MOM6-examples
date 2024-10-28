@@ -1,11 +1,11 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
-	url = https://github.com/NOAA-GFDL/MOM6.git
-	branch = dev/gfdl
+	url = https://github.com/alex-huth/MOM6.git
+	branch = ice_shelf_to_iKID_new_merged
 [submodule "src/SIS2"]
 	path = src/SIS2
 	url = https://github.com/alex-huth/SIS2.git
-	branch = aeh_merge_iOM4_with_bergs_icepack1.3.3
+	branch = ice_shelf_to_iKID_icepack1.3.3_merged
 [submodule "tools/matlab/gtools"]
 	path = tools/matlab/gtools
 	url = https://github.com/Adcroft/gtools.git
@@ -14,12 +14,12 @@
 	url = https://github.com/mjharriso/MIDAS.git
 [submodule "src/icebergs"]
 	path = src/icebergs
-	url = https://github.com/NOAA-GFDL/icebergs.git
-	branch = dev/gfdl
+	url = https://github.com/alex-huth/icebergs.git
+	branch = ice_shelf_to_iKID_merged
 [submodule "src/coupler"]
 	path = src/coupler
 	url = https://github.com/alex-huth/FMScoupler.git
-	branch = iOM4_with_bergs_rebase
+	branch = ice_shelf_to_iKID_merged
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
