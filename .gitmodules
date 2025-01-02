@@ -42,6 +42,7 @@
 [submodule "src/FMS1"]
 	path = src/FMS1
 	url = https://github.com/alex-huth/FMS
+	branch = FMS1
 [submodule "src/FMS2"]
 	path = src/FMS2
 	url= https://github.com/alex-huth/FMS
