@@ -14,8 +14,8 @@
 	url = https://github.com/mjharriso/MIDAS.git
 [submodule "src/icebergs"]
 	path = src/icebergs
-	url = https://github.com/NOAA-GFDL/icebergs.git
-	branch = dev/gfdl
+	url = https://github.com/gfdl-cryosphere/icebergs.git
+	branch = dev/cryo
 [submodule "src/coupler"]
 	path = src/coupler
 	url = https://github.com/NJSchlegel/FMScoupler_fork.git
@@ -41,11 +41,11 @@
 	branch = main
 [submodule "src/FMS1"]
 	path = src/FMS1
-	url = https://github.com/alex-huth/FMS
+	url = https://github.com/alex-huth/FMS.git
 [submodule "src/FMS2"]
 	path = src/FMS2
-	url= https://github.com/alex-huth/FMS
-	branch = iOM4_with_bergs_SMB
+	url= https://github.com/gfdl-cryosphere/FMS.git
+	branch = dev/cryo
 [submodule "src/Icepack"]
 	path = src/Icepack
 	url = https://github.com/CICE-Consortium/Icepack.git
