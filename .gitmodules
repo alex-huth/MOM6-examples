@@ -18,8 +18,8 @@
 	branch = dev/cryo
 [submodule "src/coupler"]
 	path = src/coupler
-	url = https://github.com/NJSchlegel/FMScoupler_fork.git
-	branch = land_to_mom6_adot_devel
+	url = https://github.com/gfdl-cryosphere/FMScoupler.git
+	branch = dev/cryo
 [submodule "src/atmos_null"]
 	path = src/atmos_null
 	url = https://github.com/NOAA-GFDL/atmos_null.git
