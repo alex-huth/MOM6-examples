@@ -1,10 +1,10 @@
 [submodule "src/MOM6"]
 	path = src/MOM6
-	url = https://github.com/NJSchlegel/MOM6_fork.git
+	url = https://github.com/gfdl-cryosphere/MOM6.git
 	branch = land_to_mom6_adot_devel
 [submodule "src/SIS2"]
 	path = src/SIS2
-	url = https://github.com/NJSchlegel/SIS2_fork.git
+	url = http://github.com/gfdl-cryosphere/SIS2.git
 	branch = land_to_mom6_adot_devel
 [submodule "tools/matlab/gtools"]
 	path = tools/matlab/gtools
@@ -52,5 +52,5 @@
 	branch = main
 [submodule "src/land_lad2"]
 	path = src/land_lad2
-	url = https://gitlab.gfdl.noaa.gov/Nicole.Schlegel/land-lad-2-is.git
-	branch = land_to_mom6_adot_devel
+	url = https://github.com/gfdl-cryosphere/land_lad2.git
+	branch = dev/cryo
