@@ -35,9 +35,9 @@ seaice.stats.*
 lcov.*
 
 #ignore currently-unused build scripts
-fms_build*
-ios_build*
-ios_setup.sh
-ocn_*
+!fms_build*
+!ios_build*
+!ios_setup.sh
+!ocn_*
 *~
 !build_all.sh

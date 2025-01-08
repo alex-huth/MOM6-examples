@@ -14,10 +14,9 @@ module unload PrgEnv-cray
 module load PrgEnv-intel #post Oct 14 2024
 module load intel-classic/2023.2.0 #post Oct 14 2024?
 
-# module load cray-hdf5
-# module load cray-netcdf
-module load cray-hdf5/1.12.2.11
-module load cray-netcdf/4.9.0.9
+
+module load cray-hdf5
+module load cray-netcdf
 
 # module switch cray-libsci/22.10.1.2 #pre Oct 14 2024
 module switch cray-libsci/24.03.0 #post Oct 14 2024

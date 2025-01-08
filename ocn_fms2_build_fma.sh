@@ -1,0 +1,7 @@
+#/bin/bash
+mkdir -p build/ocean_only_fms2_fma/
+(cd build/ocean_only_fms2_fma/; rm -f path_names; \
+../../src/mkmf/bin/list_paths -l ./ ../../src/MOM6/{config_src/infra/FMS2,config_src/memory/dynamic_symmetric,config_src/drivers/solo_driver,config_src/external,src/{*,*/*}}/ ; \
+ ../../src/mkmf/bin/mkmf -t ../../src/mkmf/templates/ncrc5-intel.mk -o '-I../fms2' -p MOM6 -l '-L../fms2 -lfms' -c '-Duse_libMPI -Duse_netCDF' path_names)
+source ./build/env_c5
+make -C ./build/ocean_only_fms2_fma NETCDF=3 REPRO=1 ISA='-fma -qno-opt-dynamic-align' -j 8 MOM6
