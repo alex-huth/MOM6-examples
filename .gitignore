@@ -41,3 +41,4 @@ lcov.*
 !ocn_*
 *~
 !build_all.sh
+cryo-examples
