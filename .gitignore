@@ -40,3 +40,4 @@ ios_setup.sh
 ocn_*
 *~
 !build_all.sh
+c4/
