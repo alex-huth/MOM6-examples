@@ -1,1 +1,1 @@
-../../../.datasets/../../scratch/John.Krasting/work/ESM4_piControl_D.x4l.20250404/INPUT/topo_rough_land.tile6.nc
+../../../.datasets/../../scratch/Nicole.Schlegel/work/Cryo_input_dataset/topo_rough_land.tile6.nc

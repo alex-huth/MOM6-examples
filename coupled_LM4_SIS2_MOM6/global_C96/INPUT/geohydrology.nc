@@ -1,1 +1,1 @@
-../../../.datasets/../../scratch/John.Krasting/work/ESM4_piControl_D.x4l.20250404/INPUT/geohydrology.nc
+../../../.datasets/../../scratch/Nicole.Schlegel/work/Cryo_input_dataset/geohydrology.nc

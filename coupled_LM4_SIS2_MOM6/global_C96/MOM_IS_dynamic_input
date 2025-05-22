@@ -92,7 +92,7 @@ ICE_UBDRYVAL_VARNAME = "ubdry_val"       ![m/s] default "ubdry_val"
 
 ICE_VBDRYVAL_VARNAME = "vbdry_val"       ![m/s] default "vbdry_val"
 
-DATA_OVERRIDE_SHELF_FLUXES = True                                         !Read SMB from a file
+DATA_OVERRIDE_SHELF_FLUXES = False                                         !Read SMB from a file
 
 MIN_BASAL_TRACTION = 100.0
 
