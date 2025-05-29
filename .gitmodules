@@ -26,8 +26,8 @@
 	branch = main
 [submodule "src/land_null"]
 	path = src/land_null
-	url = https://github.com/NOAA-GFDL/land_null.git
-	branch = main
+	url = https://github.com/gfdl-cryosphere/land_null.git
+	branch = dev/cryo
 [submodule "src/mkmf"]
 	path = src/mkmf
 	url = https://github.com/mom-ocean/mkmf.git
@@ -44,9 +44,19 @@
 	url = https://github.com/alex-huth/FMS
 [submodule "src/FMS2"]
 	path = src/FMS2
-	url= https://github.com/alex-huth/FMS
-	branch = iOM4_with_bergs_SMB
+	url= https://github.com/gfdl-cryosphere/FMS.git
+	branch = dev/cryo
 [submodule "src/Icepack"]
 	path = src/Icepack
 	url = https://github.com/CICE-Consortium/Icepack.git
 	branch = main
+[submodule "src/land_lad2"]
+	path = src/land_lad2
+	url = https://github.com/gfdl-cryosphere/land_lad2.git
+	branch = dev/cryo
+[submodule "src/ice_null"]
+	path = src/ice_null
+	url = https://github.com/gfdl-cryosphere/ice_null.git
+[submodule "src/ocean_null"]
+	path = src/ocean_null
+	url = https://github.com/gfdl-cryosphere/ocean_null.git

@@ -9,5 +9,5 @@ git switch ice_shelf_to_iKID_merged
 cd ../mkmf
 git switch c5
 cd ../FMS2
-git switch iOM4_with_bergs_SMB
+git switch dev/cryo
 cd ../..
