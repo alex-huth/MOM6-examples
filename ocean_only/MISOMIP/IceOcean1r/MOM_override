@@ -1,0 +1,202 @@
+! Simulation time
+
+#override DEBUG_IS_STOCKS = False !True
+#override DAYMAX = 3
+#override RESTINT = 0
+
+#override NIGLOBAL = 400
+#override NJGLOBAL = 40
+!#override LAYOUT = 80, 8
+#override LAYOUT = 10, 4
+
+
+!!$
+#override MELTING_CUTOFF_DEPTH = 0.0
+
+#override ICE_VELOCITY_TIMESTEP = 3600
+
+#override RESET_INTXPA_INTEGRAL=True
+#override MASS_WEIGHT_IN_PRESSURE_GRADIENT_TOP=True
+#override CORRECTION_INTXPA_5PT = True
+#override FRAC_DP_AT_POS_NEGATIVE_P_BUGFIX = True
+
+#override RESET_INTXPA_INTEGRAL_FLATTEST = True
+
+!#override DEBUG_IS = True
+
+#override RESTART_CONTROL=1
+!#override VERBOSITY = 5
+
+#override WESTLON = 0.0
+#override LENLON = 800.0
+
+!control sea level
+#override CONST_SEA_LEVEL = True
+#override CONST_SEA_LEVEL_MISOMIP = True
+
+#override GROUNDING_LINE_COUPLE = False
+#override THRESH_FLOAT_COL_DEPTH = 1e-3
+
+#override ANGSTROM = 1.0E-12
+
+#override GROUNDING_LINE_INTERPOLATE = True
+#override GROUNDING_LINE_INTERP_SUBGRID_N = 4
+
+#override ICE_VISCOSITY_COMPUTE = "MODEL"
+#override NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4
+
+#override ENERGYSAVEDAYS = 365
+#override ALTERNATE_FIRST_DIRECTION_IS = True
+#override FIRST_DIRECTION_IS = 1
+
+#override USE_COULOMB_FRICTION = True
+#override A_GLEN = 6.0e-25
+
+! ALE
+#override IGNORE_FLUXES_OVER_LAND = True
+#override USE_REGRIDDING = True
+#override REGRIDDING_COORDINATE_MODE = "SIGMA_SHELF_ZSTAR"
+#override INTERPOLATION_SCHEME = "PPM_H4"
+#override REMAPPING_SCHEME = "PPM_H4"
+#override TRIMMING_USES_REMAPPING = True
+
+
+! TIME STEP (pan-Antarctic)
+#override DT = 600
+#override DT_THERM = 600
+#override DT_FORCING = 600
+
+#override MAXTRUNC = 100000
+
+! MIXING
+#override THICKNESSDIFFUSE = False
+#override THICKNESSDIFFUSE_FIRST = False
+#override SMAGORINSKY_KH = False
+#override BIHARMONIC = False
+#override KH = 6.0        ! back. horiz. visc.
+#override KHTR = 1.0      ! back. horiz. diff.
+#override KD = 5.0E-5     ! back. diapycnal diff.
+#override KV = 1.0E-3     ! back. diapycnal visc.
+
+!COLD IC
+#override ISOMIP_T_SUR = -1.9
+#override ISOMIP_S_SUR = 33.8
+#override ISOMIP_T_BOT = -1.9
+#override ISOMIP_S_BOT = 34.55
+
+! ice shelf
+#override SHELF_THERMO = True
+#override SHELF_THREE_EQN = True
+
+#override SHELF_3EQ_GAMMA_T = 0.045
+!This is the value from Claire's paper for sigma zstar
+!#override SHELF_3EQ_GAMMA_T = 0.045
+!This is the value from Gustavo's repository for sigma zstar
+!#override SHELF_3EQ_GAMMA_T = 0.087
+!This is the value from Gustavo's repository for layer
+!#override SHELF_3EQ_GAMMA_T = 0.1423
+SHELF_S_ROOT = True
+#override USE_HMIX_SFC_PROP = True
+#override HMIX_SFC_PROP = 20.
+
+
+! ML
+#override MIXEDLAYER_RESTRAT = False
+#override ENERGETICS_SFC_PBL = True
+#override MLE_USE_PBL_MLD = True
+#override MINIMUM_FORCING_DEPTH = 0.5
+#override HMIX_FIXED = 20.0
+
+#override HMIX_MIN = 20.0
+#override KV_TBL_MIN = 1.0E-2
+#override HTBL_SHELF_MIN = 20.0
+#override BOUND_SALINITY = True
+
+! SHEAR MIXING
+#override USE_JACKSON_PARAM = True
+#override RINO_CRIT = 0.25
+
+! WARM SPONGE
+#override SPONGE = True
+#override ISOMIP_TNUDG = 0.1
+#override ISOMIP_S_SUR_SPONGE = 33.8
+#override ISOMIP_S_BOT_SPONGE = 34.7
+#override ISOMIP_T_SUR_SPONGE = -1.9
+#override ISOMIP_T_BOT_SPONGE = 1.0
+
+
+! PASSIVE TRACERS
+USE_ISOMIP_TRACER = True
+
+
+!! ----- OVERRIDES TO WORK WITH MISMIP+ SPINUP-------
+#override RESTART_CHECKSUMS_REQUIRED = True
+#override ICE_SHELF_CFL_FACTOR = 0.25
+#override CONJUGATE_GRADIENT_TOLERANCE = 5e-5
+#override SHELF_MOVING_FRONT = True
+#override CALVE_TO_MASK = True
+#override CALVING_MASK_FILE = "MISOMIP_IS.nc"
+#override CALVING_MASK_VARNAME = "h_mask"
+
+
+#override TOPO_CONFIG = "file"
+#override TOPO_FILE = "MISOMIP_IS.nc"
+#override SURFACE_PRESSURE_FILE = "MISMIP_shelf_steady.nc"
+#override SURFACE_PRESSURE_VAR = "h_shelf"
+#override ICE_THICKNESS_FILE = "MISMIP_shelf_steady.nc"
+#override ICE_THICKNESS_VARNAME = "h_shelf"
+#override ICE_AREA_VARNAME = "shelf_area"
+#override DATA_OVERRIDE_SHELF_FLUXES = False
+#override INITIALIZE_ICE_SHEET_SMB = True
+#override ICE_SMB_CONFIG = "FILE"
+#override ICE_SMB_FILE = "MISOMIP_IS.nc"
+#override ICE_SMB_VARNAME = "smb"
+
+#override IC_OUTPUT_FILE = "MOM_IC"
+#override ICE_A_GLEN_CONFIG = "CONSTANT"
+#override A_GLEN_VARNAME = "A_glen"
+
+#override GLEN_EXPONENT = 3
+#override MIN_STRAIN_RATE_GLEN = 1e-22
+
+#override ICE_BASAL_FRICTION_CONFIG = "CONSTANT"
+#override BASAL_FRICTION_VARNAME = "tau_b_beta"
+#override BASAL_FRICTION_COEFF = 3.16e6
+#override BASAL_FRICTION_EXP = 0.333
+#override CF_MinN = 1.0
+#override CF_PostPeak = 1.0
+#override CF_Max = 0.5
+
+#override AVG_OCEAN_DENSITY = 1028
+
+#override ICE_NONLINEAR_TOLERANCE = 5e-5
+#override CONJUGATE_GRADIENT_MAXIT = 2000
+#override NONLIN_SOLVE_ERR_MODE = 3
+#override WRITE_OUTPUT_TO_FILE = TRUE
+
+#override DYNAMIC_SHELF_MASS = TRUE
+
+#override ICE_VELOCITY_FILE = "MISMIP_shelf_steady.nc"
+#override ICE_U_VEL_VARNAME = "u_shelf"
+#override ICE_V_VEL_VARNAME = "v_shelf"
+#override ICE_VISC_VARNAME = "AGlen_visc"
+#override ICE_FLOAT_FRAC_VARNAME = "ground_frac"
+
+#override BED_TOPO_FILE = "MISOMIP_IS.nc"
+#override BED_TOPO_VARNAME = "depth"
+
+#override ICE_SHELF_BC_FILE = "MISOMIP_IS.nc"
+#override ICE_THICKNESS_MASK_VARNAME = "h_mask"
+
+#override ICE_UBDRYMSK_VARNAME = "ufacemask"
+#override ICE_VBDRYMSK_VARNAME = "vfacemask"
+#override ICE_UMASK_VARNAME = "ufacemask"
+#override ICE_VMASK_VARNAME = "vfacemask"
+#override ICE_UBDRYVAL_VARNAME = "ubdry_val"
+#override ICE_VBDRYVAL_VARNAME = "vbdry_val"
+
+#override MINIMUM_DEPTH=0.0
+
+!! This should not happen here, but just in case...
+!! Remove ice thin enough to compromise the SSA solution
+#override MIN_THICKNESS_SIMPLE_CALVE = 1.0
