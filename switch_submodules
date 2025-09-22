@@ -1,7 +1,7 @@
 cd ./src/MOM6
-git switch ice_shelf_to_iKID_new_merged
+git switch ice_shelf_to_iKID_updated
 cd ../SIS2
-git switch ice_shelf_to_iKID_icepack1.3.3_merged
+git switch IS_to_iKID_updated
 cd ../icebergs
 git switch ice_shelf_to_iKID_merged
 cd ../coupler
