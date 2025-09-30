@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 mkdir -p build/ocean_only_fms2_nonsym/
 (cd build/ocean_only_fms2_nonsym/; rm -f path_names; \
 ../../src/mkmf/bin/list_paths -l ./ ../../src/MOM6/{config_src/infra/FMS2,config_src/memory/dynamic_nonsymmetric,config_src/drivers/solo_driver,config_src/external,src/{*,*/*}}/ ; \
