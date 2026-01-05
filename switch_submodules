@@ -1,5 +1,5 @@
 cd ./src/MOM6
-git switch ice_shelf_to_iKID_updated
+git switch ice_shelf_to_iKID_updated_2
 cd ../SIS2
 git switch IS_to_iKID_updated
 cd ../icebergs
@@ -7,7 +7,7 @@ git switch ice_shelf_to_iKID_merged
 cd ../coupler
 git switch ice_shelf_to_iKID_merged
 cd ../mkmf
-git switch c5
+git switch PrgEnv-8.6.0
 cd ../FMS2
 git switch dev/cryo
 cd ../..
