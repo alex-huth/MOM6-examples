@@ -1,0 +1,76 @@
+netcdf MOM.res_2 {
+dimensions:
+	lath = 1161 ;
+	lonh = 1440 ;
+	latq = 1162 ;
+	lonq = 1441 ;
+	Layer = 63 ;
+	Interface = 64 ;
+	Time = UNLIMITED ; // (1 currently)
+variables:
+	double lath(lath) ;
+		lath:long_name = "Latitude" ;
+		lath:units = "degrees_north" ;
+		lath:cartesian_axis = "Y" ;
+	double lonh(lonh) ;
+		lonh:long_name = "Longitude" ;
+		lonh:units = "degrees_east" ;
+		lonh:cartesian_axis = "X" ;
+	double latq(latq) ;
+		latq:long_name = "Latitude" ;
+		latq:units = "degrees_north" ;
+		latq:cartesian_axis = "Y" ;
+	double lonq(lonq) ;
+		lonq:long_name = "Longitude" ;
+		lonq:units = "degrees_east" ;
+		lonq:cartesian_axis = "X" ;
+	double Layer(Layer) ;
+		Layer:long_name = "Layer Target Potential Density" ;
+		Layer:units = "kg m-3" ;
+		Layer:cartesian_axis = "Z" ;
+		Layer:sense = 1 ;
+	double Interface(Interface) ;
+		Interface:long_name = "Interface Target Potential Density" ;
+		Interface:units = "kg m-3" ;
+		Interface:cartesian_axis = "Z" ;
+		Interface:sense = 1 ;
+	double Time(Time) ;
+		Time:long_name = "Time" ;
+		Time:units = "days" ;
+		Time:cartesian_axis = "T" ;
+	double diffv(Time, Layer, latq, lonh) ;
+		diffv:long_name = "Meridional horizontal viscous acceleration" ;
+		diffv:units = "m s-2" ;
+		diffv:checksum = " 3E4784982A41AC4" ;
+	double ubtav(Time, lath, lonq) ;
+		ubtav:long_name = "Time mean barotropic zonal velocity" ;
+		ubtav:units = "m s-1" ;
+		ubtav:checksum = "4218D6FED3656EAF" ;
+	double vbtav(Time, latq, lonh) ;
+		vbtav:long_name = "Time mean barotropic meridional velocity" ;
+		vbtav:units = "m s-1" ;
+		vbtav:checksum = "A5E6D801C644A962" ;
+	double DTBT(Time) ;
+		DTBT:long_name = "Barotropic timestep" ;
+		DTBT:units = "seconds" ;
+		DTBT:checksum = "40159CF9631B2135" ;
+	double Kd_shear(Time, Interface, lath, lonh) ;
+		Kd_shear:long_name = "Shear-driven turbulent diffusivity at interfaces" ;
+		Kd_shear:units = "m2 s-1" ;
+		Kd_shear:checksum = "1DA7A885B28CFB0A" ;
+	double Kv_shear(Time, Interface, lath, lonh) ;
+		Kv_shear:long_name = "Shear-driven turbulent viscosity at interfaces" ;
+		Kv_shear:units = "m2 s-1" ;
+		Kv_shear:checksum = "1DA7A885B28CFB0A" ;
+	double u_taux_shelf(Time, lath, lonq) ;
+		u_taux_shelf:long_name = "the zonal stress on the ocean under ice shelves" ;
+		u_taux_shelf:units = "Pa" ;
+		u_taux_shelf:checksum = "D20F5D4859A4D8CD" ;
+	double v_tauy_shelf(Time, latq, lonh) ;
+		v_tauy_shelf:long_name = "the meridional stress on the ocean under ice shelves" ;
+		v_tauy_shelf:units = "Pa" ;
+		v_tauy_shelf:checksum = "FF5C71C9CE520E15" ;
+
+// global attributes:
+		:NumFilesInSet = 1 ;
+}

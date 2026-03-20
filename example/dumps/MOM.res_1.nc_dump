@@ -1,0 +1,58 @@
+netcdf MOM.res_1 {
+dimensions:
+	lath = 1161 ;
+	lonh = 1440 ;
+	latq = 1162 ;
+	lonq = 1441 ;
+	Layer = 63 ;
+	Time = UNLIMITED ; // (1 currently)
+variables:
+	double lath(lath) ;
+		lath:long_name = "Latitude" ;
+		lath:units = "degrees_north" ;
+		lath:cartesian_axis = "Y" ;
+	double lonh(lonh) ;
+		lonh:long_name = "Longitude" ;
+		lonh:units = "degrees_east" ;
+		lonh:cartesian_axis = "X" ;
+	double latq(latq) ;
+		latq:long_name = "Latitude" ;
+		latq:units = "degrees_north" ;
+		latq:cartesian_axis = "Y" ;
+	double lonq(lonq) ;
+		lonq:long_name = "Longitude" ;
+		lonq:units = "degrees_east" ;
+		lonq:cartesian_axis = "X" ;
+	double Layer(Layer) ;
+		Layer:long_name = "Layer Target Potential Density" ;
+		Layer:units = "kg m-3" ;
+		Layer:cartesian_axis = "Z" ;
+		Layer:sense = 1 ;
+	double Time(Time) ;
+		Time:long_name = "Time" ;
+		Time:units = "days" ;
+		Time:cartesian_axis = "T" ;
+	double u2(Time, Layer, lath, lonq) ;
+		u2:long_name = "Auxiliary Zonal velocity" ;
+		u2:units = "m s-1" ;
+		u2:checksum = "9F8EA7510F5DDBFD" ;
+	double v2(Time, Layer, latq, lonh) ;
+		v2:long_name = "Auxiliary Meridional velocity" ;
+		v2:units = "m s-1" ;
+		v2:checksum = "F4ADDCBFCC6DBA12" ;
+	double CAu(Time, Layer, lath, lonq) ;
+		CAu:long_name = "Zonal Coriolis and advactive acceleration" ;
+		CAu:units = "m s-2" ;
+		CAu:checksum = "A95133668FB5124C" ;
+	double CAv(Time, Layer, latq, lonh) ;
+		CAv:long_name = "Meridional Coriolis and advactive  acceleration" ;
+		CAv:units = "m s-2" ;
+		CAv:checksum = "D16D30A0DE0D8FCC" ;
+	double diffu(Time, Layer, lath, lonq) ;
+		diffu:long_name = "Zonal horizontal viscous acceleration" ;
+		diffu:units = "m s-2" ;
+		diffu:checksum = "CD9A73CC816EDAA9" ;
+
+// global attributes:
+		:NumFilesInSet = 1 ;
+}

@@ -1,0 +1,78 @@
+netcdf MOM.res {
+dimensions:
+	lath = 1161 ;
+	lonh = 1440 ;
+	latq = 1162 ;
+	lonq = 1441 ;
+	Layer = 63 ;
+	Time = UNLIMITED ; // (1 currently)
+variables:
+	double lath(lath) ;
+		lath:long_name = "Latitude" ;
+		lath:units = "degrees_north" ;
+		lath:cartesian_axis = "Y" ;
+	double lonh(lonh) ;
+		lonh:long_name = "Longitude" ;
+		lonh:units = "degrees_east" ;
+		lonh:cartesian_axis = "X" ;
+	double latq(latq) ;
+		latq:long_name = "Latitude" ;
+		latq:units = "degrees_north" ;
+		latq:cartesian_axis = "Y" ;
+	double lonq(lonq) ;
+		lonq:long_name = "Longitude" ;
+		lonq:units = "degrees_east" ;
+		lonq:cartesian_axis = "X" ;
+	double Layer(Layer) ;
+		Layer:long_name = "Layer Target Potential Density" ;
+		Layer:units = "kg m-3" ;
+		Layer:cartesian_axis = "Z" ;
+		Layer:sense = 1 ;
+	double Time(Time) ;
+		Time:long_name = "Time" ;
+		Time:units = "days" ;
+		Time:cartesian_axis = "T" ;
+	double Temp(Time, Layer, lath, lonh) ;
+		Temp:long_name = "Potential Temperature" ;
+		Temp:units = "degC" ;
+		Temp:checksum = "A56647EA4DFAAF4C" ;
+	double Salt(Time, Layer, lath, lonh) ;
+		Salt:long_name = "Salinity" ;
+		Salt:units = "PPT" ;
+		Salt:checksum = "8E3F56A1980851FF" ;
+	double h(Time, Layer, lath, lonh) ;
+		h:long_name = "Layer Thickness" ;
+		h:units = "m" ;
+		h:checksum = "CAF0F9D8FC68F2EA" ;
+	double u(Time, Layer, lath, lonq) ;
+		u:long_name = "Zonal velocity" ;
+		u:units = "m s-1" ;
+		u:checksum = "D05FECAB6B9CC27C" ;
+	double v(Time, Layer, latq, lonh) ;
+		v:long_name = "Meridional velocity" ;
+		v:units = "m s-1" ;
+		v:checksum = "532D795A9FEF91EA" ;
+	double p_surf_EOS(Time, lath, lonh) ;
+		p_surf_EOS:long_name = "Ocean surface pressure used in EoS" ;
+		p_surf_EOS:units = "Pa" ;
+		p_surf_EOS:checksum = "53EA2CDF632D4FAB" ;
+	double ave_ssh(Time, lath, lonh) ;
+		ave_ssh:long_name = "Time average sea surface height" ;
+		ave_ssh:units = "meter" ;
+		ave_ssh:checksum = "E904423A4B4A803E" ;
+	double hML(Time, lath, lonh) ;
+		hML:long_name = "Mixed layer thickness" ;
+		hML:units = "m" ;
+		hML:checksum = "A885748FBFA50430" ;
+	double First_direction(Time) ;
+		First_direction:long_name = "Indicator of the first direction in split calculations." ;
+		First_direction:units = "nondim" ;
+		First_direction:checksum = "               0" ;
+	double sfc(Time, lath, lonh) ;
+		sfc:long_name = "Free surface Height" ;
+		sfc:units = "m" ;
+		sfc:checksum = "CB3FA8232C92D549" ;
+
+// global attributes:
+		:NumFilesInSet = 1 ;
+}
