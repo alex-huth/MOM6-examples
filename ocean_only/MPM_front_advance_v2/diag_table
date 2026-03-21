@@ -1,0 +1,13 @@
+"MPM_front_advance"
+1 1 1 0 0 0
+"ice_shelf", 1825, "days", 1, "days", "Time"
+
+#=====================
+# Ice shelf diagnostics (output every ~5 yr = 1825 days)
+#=====================
+"ice_shelf_model", "h_shelf",     "h_shelf",     "ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "h_mask",      "h_mask",      "ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "u_shelf",     "u_shelf",     "ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "v_shelf",     "v_shelf",     "ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "shelf_speed", "shelf_speed", "ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "area_shelf_h","area_shelf_h","ice_shelf", "all", .false., "none", 2

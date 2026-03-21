@@ -1,0 +1,45 @@
+! MOM_input for the MPM ice-front advance test.
+!
+! 500 km x 75 km floating ice shelf, 25 km cells.
+! Ice front initially at x = 300 km; open ocean beyond.
+! Analytic front position at t=300 yr: ~432 km (+132 km advance).
+! See INPUT/make_ic.py for analytic derivation.
+!
+! Run DAYMAX = 300 yr.
+
+! === module MOM_domains ===
+REENTRANT_X = False
+REENTRANT_Y = False
+NIGLOBAL = 20             ! 20 cells x 25 km = 500 km
+NJGLOBAL = 3              ! 3 cells  x 25 km =  75 km
+
+! === module MOM_verticalGrid ===
+NK = 1
+
+! === module MOM ===
+DT = 86400.0              ! [s] dummy ocean timestep (1 day)
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "cartesian"
+AXIS_UNITS = "k"          ! kilometres
+SOUTHLAT = 0.0            ! [km]
+LENLAT = 75.0             ! [km]
+WESTLON = 0.0             ! [km]
+LENLON = 500.0            ! [km]
+TOPO_CONFIG = "flat"
+MAXIMUM_DEPTH = 1500.0    ! [m]
+MINIMUM_DEPTH = 0.0       ! [m]
+
+! === module MOM_ice_shelf (driver) ===
+ICE_SHELF = True
+
+! === time stepping ===
+TIMEUNIT = 31536000.0     ! [s] = 1 yr
+DAYMAX = 300.0            ! [TIMEUNIT] = 300 yr  (analytic front at ~432 km)
+RESTART_CONTROL = -1      ! no restart files
+
+! === diagnostics ===
+ENERGYSAVEDAYS = 365.0    ! [days] log energy annually

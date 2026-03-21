@@ -1,0 +1,60 @@
+! MOM_IS_dynamic_input -- Ice shelf dynamics for the MPM front advance test.
+!
+! Ice front initially at x=300km; FILE-based BCs read masks from MPM_IC.nc.
+
+! === module MOM_ice_shelf_dyn (dynamics only -- ICE_SHELF set in MOM_IS_input) ===
+
+! Rheology: Glen n=3, stiffer ice (A=1e-26) to keep front within domain
+GLEN_EXPONENT = 3
+ICE_VISCOSITY_COMPUTE = "MODEL"
+NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4
+ICE_A_GLEN_CONFIG = "CONSTANT"
+A_GLEN = 1.0e-26            ! [Pa^-n s^-1]  stiffer: front advances ~132 km in 300 yr
+MIN_STRAIN_RATE_GLEN = 1.0e-22  ! [s^-1] regularization to prevent infinite viscosity
+
+! Basal friction: none (floating shelf)
+ICE_BASAL_FRICTION_CONFIG = "CONSTANT"
+BASAL_FRICTION_COEFF = 0.0
+BASAL_FRICTION_EXP = 1.0
+
+! SSA solver settings
+CONJUGATE_GRADIENT_TOLERANCE = 1.0e-6
+ICE_NONLINEAR_TOLERANCE = 1.0e-4
+CONJUGATE_GRADIENT_MAXIT = 2000
+ICE_VELOCITY_TIMESTEP = 31536000.0  ! [s] = 1 yr
+
+! Ice front: allow MPM particles to advance the calving front
+SHELF_MOVING_FRONT = True
+
+! Grounding line
+GROUNDING_LINE_INTERPOLATE = False
+
+! Boundary conditions: FILE-based masks and values from MPM_IC.nc.
+! ufacemask=2 marks the CFBC calving-front face; ufacemask=5 = open ice face;
+! ufacemask=-2 = ocean; vfacemask=0 = no-slip N/S walls.
+ICE_BOUNDARY_CONFIG = "FILE"
+ICE_SHELF_BC_FILE = "MPM_IC.nc"
+ICE_THICKNESS_MASK_VARNAME = "h_mask"
+ICE_UBDRYMSK_VARNAME = "ufacemask"
+ICE_VBDRYMSK_VARNAME = "vfacemask"
+ICE_UMASK_VARNAME = "ufacemask"    ! override default "umask"
+ICE_VMASK_VARNAME = "vfacemask"    ! override default "vmask"
+ICE_UBDRYVAL_VARNAME = "ubdry_val"
+ICE_VBDRYVAL_VARNAME = "vbdry_val"
+
+! Initial ice velocity: read from file
+ICE_FLOW_CONFIG = "FILE"
+ICE_VELOCITY_FILE = "MPM_IC.nc"
+ICE_U_VEL_VARNAME = "u_shelf"
+ICE_V_VEL_VARNAME = "v_shelf"
+ICE_FLOAT_FRAC_VARNAME = "float_frac"
+
+! Bed topography
+BED_TOPO_FILE = "MPM_IC.nc"
+BED_TOPO_VARNAME = "depth"
+
+! === MPM settings ===
+USE_MPM = True                  ! MPM mode: particles carry thickness and advect Lagrangially
+MPM_N_PER_CELL = 4
+MPM_SPLIT_FACTOR = 2.0
+MPM_FLIP_ALPHA = 1.0
