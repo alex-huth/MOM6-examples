@@ -1,0 +1,49 @@
+! MOM_input for the MPM Weertman steady-state test.
+!
+! 500 km x 75 km floating ice shelf, 25 km cells.
+! Uniform thickness H = 500 m, no basal friction, Glen n = 3.
+! The SSA Weertman solution gives a linearly increasing velocity for
+! a uniform-thickness floating shelf with prescribed inflow.
+!
+! Run DAYMAX = 150 yr for steady-state comparison.
+
+! === module MOM_domains ===
+REENTRANT_X = False
+REENTRANT_Y = False
+NIGLOBAL = 20             ! 20 cells x 25 km = 500 km
+NJGLOBAL = 3              ! 3 cells  x 25 km =  75 km
+
+! === module MOM_verticalGrid ===
+NK = 1
+
+! === module MOM ===
+! The ice-shelf solo driver does not run ocean dynamics; NK and DT are
+! placeholders satisfying MOM grid init.
+DT = 86400.0              ! [s] dummy ocean timestep (1 day)
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "cartesian"
+AXIS_UNITS = "k"          ! kilometres
+SOUTHLAT = 0.0            ! [km]
+LENLAT = 75.0             ! [km]
+WESTLON = 0.0             ! [km]
+LENLON = 500.0            ! [km]
+TOPO_CONFIG = "flat"
+MAXIMUM_DEPTH = 1500.0    ! [m]
+MINIMUM_DEPTH = 0.0       ! [m]
+
+! === module MOM_ice_shelf (driver) ===
+ICE_SHELF = True
+
+! === time stepping ===
+! ICE_VELOCITY_TIMESTEP is set in MOM_IS_dynamic_input.
+! TIMEUNIT and DAYMAX control the total run duration.
+TIMEUNIT = 31536000.0     ! [s] = 1 yr
+DAYMAX = 150.0            ! [TIMEUNIT] = 150 yr (full production run)
+RESTART_CONTROL = -1      ! no restart files
+
+! === diagnostics ===
+ENERGYSAVEDAYS = 365.0    ! [days] log energy annually

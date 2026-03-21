@@ -1,0 +1,56 @@
+! MOM_IS_dynamic_input -- Ice shelf dynamics parameters for the MPM Weertman test.
+!
+! Uses FILE-based boundary conditions (reads masks and BCs from MPM_IC.nc).
+! Analytic Weertman solution: uniform 500m floating shelf, u(x) = u0 + eps_xx * x
+!   u0 = 200 m/yr,  eps_xx ~ 1.74e-10 s^-1,  u(500km) ~ 287 m/yr
+!
+! ICE_BOUNDARY_CONFIG and ICE_FLOW_CONFIG default to "FILE".
+
+! === Rheology: Glen n=3 ===
+GLEN_EXPONENT = 3
+ICE_VISCOSITY_COMPUTE = "MODEL"
+NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4
+ICE_A_GLEN_CONFIG = "CONSTANT"
+A_GLEN = 1.0e-25                ! [Pa^-n s^-1]
+MIN_STRAIN_RATE_GLEN = 1.0e-22  ! [s^-1] regularization
+
+! === Basal friction: none (floating shelf) ===
+ICE_BASAL_FRICTION_CONFIG = "CONSTANT"
+BASAL_FRICTION_COEFF = 0.0
+BASAL_FRICTION_EXP = 1.0
+
+! === SSA solver ===
+CONJUGATE_GRADIENT_TOLERANCE = 1.0e-6
+ICE_NONLINEAR_TOLERANCE = 1.0e-4
+CONJUGATE_GRADIENT_MAXIT = 2000
+ICE_VELOCITY_TIMESTEP = 31536000.0  ! [s] = 1 yr
+
+! === Steady-state: no front movement, no grounding line interpolation ===
+SHELF_MOVING_FRONT = False
+GROUNDING_LINE_INTERPOLATE = False
+DYNAMIC_SHELF_MASS = True
+
+! === Boundary conditions: FILE (default) -- reads from ICE_SHELF_BC_FILE ===
+ICE_SHELF_BC_FILE = "MPM_IC.nc"
+ICE_THICKNESS_MASK_VARNAME = "h_mask"
+ICE_UBDRYMSK_VARNAME = "ufacemask"
+ICE_VBDRYMSK_VARNAME = "vfacemask"
+ICE_UMASK_VARNAME = "ufacemask"    ! default "umask" -- override to match IC file
+ICE_VMASK_VARNAME = "vfacemask"    ! default "vmask" -- override to match IC file
+ICE_UBDRYVAL_VARNAME = "ubdry_val"
+ICE_VBDRYVAL_VARNAME = "vbdry_val"
+
+! === Initial velocity and bed: FILE (default) -- reads from ICE_VELOCITY_FILE ===
+ICE_VELOCITY_FILE = "MPM_IC.nc"
+ICE_U_VEL_VARNAME = "u_shelf"
+ICE_V_VEL_VARNAME = "v_shelf"
+ICE_FLOAT_FRAC_VARNAME = "float_frac"
+
+BED_TOPO_FILE = "MPM_IC.nc"
+BED_TOPO_VARNAME = "depth"
+
+! === MPM settings ===
+USE_MPM = True                  ! MPM mode: particles carry thickness and advect Lagrangially
+MPM_N_PER_CELL = 4
+MPM_SPLIT_FACTOR = 2.0
+MPM_FLIP_ALPHA = 1.0

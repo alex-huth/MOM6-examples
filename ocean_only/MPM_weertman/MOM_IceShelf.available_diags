@@ -1,0 +1,303 @@
+"ice_shelf_model", "u_shelf"  [Used]
+    ! long_name: x-velocity of ice
+    ! units: m yr-1
+"ice_shelf_model", "v_shelf"  [Used]
+    ! long_name: y-velocity of ice
+    ! units: m yr-1
+"ice_shelf_model", "shelf_speed"  [Used]
+    ! long_name: speed of of ice shelf
+    ! units: m yr-1
+"ice_shelf_model", "taudx_shelf"  [Unused]
+    ! long_name: x-driving stress of ice
+    ! units: kPa
+"ice_shelf_model", "taudy_shelf"  [Unused]
+    ! long_name: y-driving stress of ice
+    ! units: kPa
+"ice_shelf_model", "taud_shelf"  [Unused]
+    ! long_name: magnitude of driving stress of ice
+    ! units: kPa
+"ice_shelf_model", "sx_shelf"  [Unused]
+    ! long_name: x-surface slope of ice
+    ! units: none
+"ice_shelf_model", "sy_shelf"  [Unused]
+    ! long_name: y-surface slope of ice
+    ! units: none
+"ice_shelf_model", "surf_slope_mag_shelf"  [Unused]
+    ! long_name: magnitude of surface slope of ice
+    ! units: none
+"ice_shelf_model", "u_mask"  [Used]
+    ! long_name: mask for u-nodes
+    ! units: none
+"ice_shelf_model", "v_mask"  [Unused]
+    ! long_name: mask for v-nodes
+    ! units: none
+"ice_shelf_model", "ice_ground_frac"  [Unused]
+    ! long_name: fraction of cell that is grounded
+    ! units: none
+"ice_shelf_model", "float_cond"  [Unused]
+    ! long_name: sub-cell grounding cells
+    ! units: none
+"ice_shelf_model", "col_thick"  [Unused]
+    ! long_name: ocean column thickness passed to ice model
+    ! units: m
+"ice_shelf_model", "ice_visc"  [Used]
+    ! long_name: vi-viscosity
+    ! units: Pa m s
+"ice_shelf_model", "taub_beta"  [Unused]
+    ! long_name: taub
+    ! units: MPa yr m-1
+"ice_shelf_model", "OD_av"  [Unused]
+    ! long_name: intermediate ocean column thickness passed to ice model
+    ! units: m
+"ice_shelf_model", "duHdx"  [Unused]
+    ! long_name: x-component of ice-sheet flux divergence
+    ! units: m yr-1
+"ice_shelf_model", "dvHdy"  [Unused]
+    ! long_name: y-component of ice-sheet flux divergence
+    ! units: m yr-1
+"ice_shelf_model", "fluxdiv"  [Unused]
+    ! long_name: ice-sheet flux divergence
+    ! units: m yr-1
+"ice_shelf_model", "strainrate_xx"  [Unused]
+    ! long_name: x-component of ice-shelf strain-rate
+    ! units: yr-1
+"ice_shelf_model", "strainrate_yy"  [Unused]
+    ! long_name: y-component of ice-shelf strain-rate
+    ! units: yr-1
+"ice_shelf_model", "strainrate_xy"  [Unused]
+    ! long_name: xy-component of ice-shelf strain-rate
+    ! units: yr-1
+"ice_shelf_model", "pstrainrate_1"  [Unused]
+    ! long_name: max principal horizontal ice-shelf strain-rate
+    ! units: yr-1
+"ice_shelf_model", "pstrainrate_2"  [Unused]
+    ! long_name: min principal horizontal ice-shelf strain-rate
+    ! units: yr-1
+"ice_shelf_model", "devstress_xx"  [Unused]
+    ! long_name: x-component of ice-shelf deviatoric stress
+    ! units: kPa
+"ice_shelf_model", "devstress_yy"  [Unused]
+    ! long_name: y-component of ice-shelf deviatoric stress
+    ! units: kPa
+"ice_shelf_model", "devstress_xy"  [Unused]
+    ! long_name: xy-component of ice-shelf deviatoric stress
+    ! units: kPa
+"ice_shelf_model", "pdevstress_1"  [Unused]
+    ! long_name: max principal horizontal ice-shelf deviatoric stress
+    ! units: kPa
+"ice_shelf_model", "pdevstress_2"  [Unused]
+    ! long_name: min principal ice-shelf deviatoric stress
+    ! units: kPa
+"ice_shelf_model", "area_shelf_h"  [Used]
+    ! long_name: Ice Shelf Area in cell
+    ! units: meter2
+"ice_shelf_model", "shelf_mass"  [Unused]
+    ! long_name: mass of shelf
+    ! units: kg/m^2
+"ice_shelf_model", "h_shelf"  [Used]
+    ! long_name: ice shelf thickness
+    ! units: m
+"ice_shelf_model", "dhdt_shelf"  [Unused]
+    ! long_name: change in ice shelf thickness over time
+    ! units: m s-1
+"ice_shelf_model", "mass_flux"  [Unused]
+    ! long_name: Total mass flux of freshwater across the ice-ocean interface.
+    ! units: kg/s
+"ice_shelf_model", "melt"  [Unused]
+    ! long_name: Ice Shelf Melt Rate
+    ! units: m yr-1
+"ice_shelf_model", "thermal_driving"  [Unused]
+    ! long_name: pot. temp. in the boundary layer minus freezing pot. temp. at the ice-ocean interface.
+    ! units: Celsius
+"ice_shelf_model", "haline_driving"  [Unused]
+    ! long_name: salinity in the boundary layer minus salinity at the ice-ocean interface.
+    ! units: psu
+"ice_shelf_model", "sbdry"  [Unused]
+    ! long_name: salinity at the ice-ocean interface.
+    ! units: psu
+"ice_shelf_model", "u_ml"  [Unused]
+    ! long_name: Eastward vel. in the boundary layer (used to compute ustar)
+    ! units: m s-1
+"ice_shelf_model", "v_ml"  [Unused]
+    ! long_name: Northward vel. in the boundary layer (used to compute ustar)
+    ! units: m s-1
+"ice_shelf_model", "exch_vel_s"  [Unused]
+    ! long_name: Sub-shelf salinity exchange velocity
+    ! units: m s-1
+"ice_shelf_model", "exch_vel_t"  [Unused]
+    ! long_name: Sub-shelf thermal exchange velocity
+    ! units: m s-1
+"ice_shelf_model", "tfreeze"  [Unused]
+    ! long_name: In Situ Freezing point at ice shelf interface
+    ! units: degC
+"ice_shelf_model", "tflux_shelf"  [Unused]
+    ! long_name: Heat conduction into ice shelf
+    ! units: W m-2
+"ice_shelf_model", "ustar_shelf"  [Unused]
+    ! long_name: Fric vel under shelf
+    ! units: m/s
+"ice_shelf_model", "frazil"  [Unused]
+    ! long_name: Frazil heat rejected by the ocean
+    ! units: J m-2
+"ice_shelf_model", "h_mask"  [Used]
+    ! long_name: ice shelf thickness mask
+    ! units: none
+"ice_shelf_model", "sfc_mass_flux"  [Unused]
+    ! long_name: ice shelf surface mass flux deposition from atmosphere
+    ! units: kg m-2 s-1
+"ice_shelf_model", "int_vaf"  [Unused]
+    ! long_name: Area integrated ice sheet volume above floatation
+    ! units: m3
+"ice_shelf_model", "int_a"  [Unused]
+    ! long_name: Area integrated change in ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_ground"  [Unused]
+    ! long_name: Area integrated change in grounded ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_float"  [Unused]
+    ! long_name: Area integrated change in floating ice-shelf thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b"  [Unused]
+    ! long_name: Area integrated change in floating ice-shelf thickness due to basal accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_melt"  [Unused]
+    ! long_name: Area integrated basal melt over ice shelves during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_accum"  [Unused]
+    ! long_name: Area integrated basal accumulation over ice shelves during a DT_THERM a time step
+    ! units: m3
+"ice_shelf_model", "tot_area"  [Unused]
+    ! long_name: Total ice-sheet area
+    ! units: m2
+"ice_shelf_model", "tot_area_float"  [Unused]
+    ! long_name: Total area of floating ice shelves
+    ! units: m2
+"ice_shelf_model", "tot_area_ground"  [Unused]
+    ! long_name: Total area of grounded ice sheets
+    ! units: m2
+"ice_shelf_model", "int_vafdot"  [Unused]
+    ! long_name: Area integrated rate of change in ice-sheet volume above floatation
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot"  [Unused]
+    ! long_name: Area integrated rate of change in ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_ground"  [Unused]
+    ! long_name: Area integrated rate of change in grounded ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_float"  [Unused]
+    ! long_name: Area integrated rate of change in floating ice-shelf thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot"  [Unused]
+    ! long_name: Area integrated rate of change in ice-shelf thickness due to basal accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_melt"  [Unused]
+    ! long_name: Area integrated basal melt rate over ice shelves
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_accum"  [Unused]
+    ! long_name: Area integrated basal accumulation rate over ice shelves
+    ! units: m3 s-1
+"ice_shelf_model", "mass_hole_IS"  [Unused]
+    ! long_name: Ice-sheet mass in the ocean grid hole, if present
+    ! units: kg
+"ice_shelf_model", "int_vaf_A"  [Unused]
+    ! long_name: Area integrated Antarctic ice sheet volume above floatation
+    ! units: m3
+"ice_shelf_model", "int_a_A"  [Unused]
+    ! long_name: Area integrated (Antarctic ice sheet) change in ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_ground_A"  [Unused]
+    ! long_name: Area integrated change in Antarctic grounded ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_float_A"  [Unused]
+    ! long_name: Area integrated change in Antarctic floating ice-shelf thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_A"  [Unused]
+    ! long_name: Area integrated change in Antarctic floating ice-shelf thickness due to basal accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_melt_A"  [Unused]
+    ! long_name: Area integrated basal melt over Antarctic ice shelves during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_accum_A"  [Unused]
+    ! long_name: Area integrated basal accumulation over Antarctic ice shelves during a DT_THERM a time step
+    ! units: m3
+"ice_shelf_model", "tot_area_A"  [Unused]
+    ! long_name: Total area of Antarctic ice sheet
+    ! units: m2
+"ice_shelf_model", "tot_area_float_A"  [Unused]
+    ! long_name: Total area of Antarctic floating ice shelves
+    ! units: m2
+"ice_shelf_model", "tot_area_ground_A"  [Unused]
+    ! long_name: Total area of Antarctic grounded ice sheet
+    ! units: m2
+"ice_shelf_model", "int_vafdot_A"  [Unused]
+    ! long_name: Area integrated rate of change in Antarctic ice-sheet volume above floatation
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_A"  [Unused]
+    ! long_name: Area integrated rate of change in Antarctic ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_ground_A"  [Unused]
+    ! long_name: Area integrated rate of change in Antarctic grounded ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_float_A"  [Unused]
+    ! long_name: Area integrated rate of change in Antarctic floating ice-shelf thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_A"  [Unused]
+    ! long_name: Area integrated rate of change in Antarctic ice-shelf thickness due to basal accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_melt_A"  [Unused]
+    ! long_name: Area integrated basal melt rate over Antarctic ice shelves
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_accum_A"  [Unused]
+    ! long_name: Area integrated basal accumulation rate over Antarctic ice shelves
+    ! units: m3 s-1
+"ice_shelf_model", "int_vaf_G"  [Unused]
+    ! long_name: Area integrated Greenland ice sheet volume above floatation
+    ! units: m3
+"ice_shelf_model", "int_a_G"  [Unused]
+    ! long_name: Area integrated (Greenland ice sheet) change in ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_ground_G"  [Unused]
+    ! long_name: Area integrated change in Greenland grounded ice-sheet thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_a_float_G"  [Unused]
+    ! long_name: Area integrated change in Greenland floating ice-shelf thickness due to surface accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_G"  [Unused]
+    ! long_name: Area integrated change in Greenland floating ice-shelf thickness due to basal accum+melt during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_melt_G"  [Unused]
+    ! long_name: Area integrated basal melt over Greenland ice shelves during a DT_THERM time step
+    ! units: m3
+"ice_shelf_model", "int_b_accum_G"  [Unused]
+    ! long_name: Area integrated basal accumulation over Greenland ice shelves during a DT_THERM a time step
+    ! units: m3
+"ice_shelf_model", "tot_area_G"  [Unused]
+    ! long_name: Total area of Greenland ice sheet
+    ! units: m2
+"ice_shelf_model", "tot_area_float_G"  [Unused]
+    ! long_name: Total area of Greenland floating ice shelves
+    ! units: m2
+"ice_shelf_model", "tot_area_ground_G"  [Unused]
+    ! long_name: Total area of Greenland grounded ice sheet
+    ! units: m2
+"ice_shelf_model", "int_vafdot_G"  [Unused]
+    ! long_name: Area integrated rate of change in Greenland ice-sheet volume above floatation
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_G"  [Unused]
+    ! long_name: Area integrated rate of change in Greenland ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_ground_G"  [Unused]
+    ! long_name: Area integrated rate of change in Greenland grounded ice-sheet thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_adot_float_G"  [Unused]
+    ! long_name: Area integrated rate of change in Greenland floating ice-shelf thickness due to surface accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_G"  [Unused]
+    ! long_name: Area integrated rate of change in Greenland ice-shelf thickness due to basal accum+melt
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_melt_G"  [Unused]
+    ! long_name: Area integrated basal melt rate over Greenland ice shelves
+    ! units: m3 s-1
+"ice_shelf_model", "int_bdot_accum_G"  [Unused]
+    ! long_name: Area integrated basal accumulation rate over Greenland ice shelves
+    ! units: m3 s-1

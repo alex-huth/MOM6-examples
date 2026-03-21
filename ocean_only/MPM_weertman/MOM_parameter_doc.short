@@ -1,0 +1,162 @@
+! This file was written by the model and records the non-default parameters used at run-time.
+
+! === module SHELF_main (ice_shelf_driver) ===
+ICE_SHELF = True                !   [Boolean] default = False
+                                ! If true, call the code to apply an ice shelf model over some of the domain.
+ICE_VELOCITY_TIMESTEP = 3.1536E+07 !   [s]
+                                ! The time step for changing forcing, coupling with other components, or
+                                ! potentially writing certain diagnostics.
+
+! === module MOM_domains ===
+REENTRANT_X = False             !   [Boolean] default = True
+                                ! If true, the domain is zonally reentrant.
+NIGLOBAL = 20                   !
+                                ! The total number of thickness grid points in the x-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+NJGLOBAL = 3                    !
+                                ! The total number of thickness grid points in the y-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "cartesian"       !
+                                ! A character string that determines the method for defining the horizontal
+                                ! grid.  Current options are:
+                                !     mosaic - read the grid from a mosaic (supergrid)
+                                !              file set by GRID_FILE.
+                                !     cartesian - use a (flat) Cartesian grid.
+                                !     spherical - use a simple spherical grid.
+                                !     mercator - use a Mercator spherical grid.
+AXIS_UNITS = "k"                ! default = "degrees"
+                                ! The units for the Cartesian axes. Valid entries are:
+                                !     degrees - degrees of latitude and longitude
+                                !     m or meter(s) - meters
+                                !     k or km or kilometer(s) - kilometers
+SOUTHLAT = 0.0                  !   [km]
+                                ! The southern latitude of the domain or the equivalent starting value for the
+                                ! y-axis.
+LENLAT = 75.0                   !   [km]
+                                ! The latitudinal or y-direction length of the domain.
+LENLON = 500.0                  !   [km]
+                                ! The longitudinal or x-direction length of the domain.
+TOPO_CONFIG = "flat"            !
+                                ! This specifies how bathymetry is specified:
+                                !     file - read bathymetric information from the file
+                                !       specified by (TOPO_FILE).
+                                !     flat - flat bottom set to MAXIMUM_DEPTH.
+                                !     bowl - an analytically specified bowl-shaped basin
+                                !       ranging between MAXIMUM_DEPTH and MINIMUM_DEPTH.
+                                !     spoon - a similar shape to 'bowl', but with an vertical
+                                !       wall at the southern face.
+                                !     halfpipe - a zonally uniform channel with a half-sine
+                                !       profile in the meridional direction.
+                                !     bbuilder - build topography from list of functions.
+                                !     benchmark - use the benchmark test case topography.
+                                !     Neverworld - use the Neverworld test case topography.
+                                !     DOME - use a slope and channel configuration for the
+                                !       DOME sill-overflow test case.
+                                !     ISOMIP - use a slope and channel configuration for the
+                                !       ISOMIP test case.
+                                !     DOME2D - use a shelf and slope configuration for the
+                                !       DOME2D gravity current/overflow test case.
+                                !     Kelvin - flat but with rotated land mask.
+                                !     seamount - Gaussian bump for spontaneous motion test case.
+                                !     dumbbell - Sloshing channel with reservoirs on both ends.
+                                !     shelfwave - exponential slope for shelfwave test case.
+                                !     Phillips - ACC-like idealized topography used in the Phillips config.
+                                !     dense - Denmark Strait-like dense water formation and overflow.
+                                !     USER - call a user modified routine.
+MAXIMUM_DEPTH = 1500.0          !   [m]
+                                ! The maximum depth of the ocean.
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
+! === module MOM_fixed_initialization ===
+
+! === module MOM_verticalGrid ===
+! Parameters providing information about the vertical grid.
+RHO_0 = 1028.0                  !   [kg m-3] default = 1035.0
+                                ! The mean ocean density used with BOUSSINESQ true to calculate accelerations
+                                ! and the mass for conservation properties, or with BOUSSINESQ false to convert
+                                ! some parameters from vertical units of m to kg m-2.
+NK = 1                          !   [nondim]
+                                ! The number of model layers.
+
+! === module MOM_diag_mediator ===
+
+! === module MOM_domains min_halo ===
+
+! === module MOM_grid_init ===
+
+! === module MOM_ice_shelf ===
+DYNAMIC_SHELF_MASS = True       !   [Boolean] default = False
+                                ! If true, the ice sheet mass can evolve with time.
+
+! === module MOM_EOS ===
+DENSITY_ICE = 910.0             !   [kg m-3] default = 917.0
+                                ! A typical density of ice.
+NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4 !   [none] default = 1
+                                ! Number of ice viscosity quadrature points. Either 1 (cell-centered) for 4
+ICE_PROFILE_CONFIG = "FILE"     !
+                                ! This specifies how the initial ice profile is specified. Valid values are:
+                                ! CHANNEL, FILE, and USER.
+ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_h.nc"
+                                ! The file from which the bathymetry is read.
+ICE_AREA_VARNAME = "shelf_area" ! default = "area_shelf_h"
+                                ! The name of the area variable in ICE_THICKNESS_FILE.
+
+! === module MOM_ice_shelf_dyn ===
+MIN_STRAIN_RATE_GLEN = 1.0E-22  !   [s-1] default = 1.0E-19
+                                ! min. strain rate to avoid infinite Glen's law viscosity
+BASAL_FRICTION_EXP = 1.0        !   [none]
+                                ! Exponent in sliding law   au_b = C u^(n_basal_fric)
+ICE_NONLINEAR_TOLERANCE = 1.0E-04 !   [nondim] default = 1.0E-06
+                                ! nonlin tolerance in iterative velocity solve
+ADVECT_SHELF = False            !   [Boolean] default = True
+                                ! If true, advect ice shelf and evolve thickness
+TIMEUNIT = 3.1536E+07           !   [s] default = 8.64E+04
+                                ! The time unit in seconds a number of input fields
+ENERGYSAVEDAYS = 365.0          !   [years] default = 0.0027397260273973
+                                ! The interval in units of TIMEUNIT between saves of the energies of the run and
+                                ! other globally summed diagnostics.
+ICE_BASAL_FRICTION_CONFIG = "CONSTANT" !
+                                ! This specifies how the initial basal friction profile is specified. Valid
+                                ! values are: CONSTANT and FILE.
+BASAL_FRICTION_COEFF = 0.0      !   [Pa (s m-1)^(n_basal_fric)] default = 5.0E+10
+                                ! Coefficient in sliding law.
+ICE_A_GLEN_CONFIG = "CONSTANT"  !
+                                ! This specifies how the initial ice-stiffness parameter is specified. Valid
+                                ! values are: CONSTANT and FILE.
+A_GLEN = 1.0E-25                !   [Pa-n_g s-1] default = 2.261E-25
+                                ! Ice-stiffness parameter.
+ICE_SHELF_BC_FILE = "MPM_IC.nc" ! default = "ice_shelf_bc.nc"
+                                ! The file from which the boundary conditions are read.
+ICE_UMASK_VARNAME = "ufacemask" ! default = "umask"
+                                ! The name of the ice-shelf ubdrymask variable in ICE_SHELF_BC_FILE.
+ICE_VMASK_VARNAME = "vfacemask" ! default = "vmask"
+                                ! The name of the ice-shelf vbdrymask variable in ICE_SHELF_BC_FILE.
+ICE_VELOCITY_FILE = "MPM_IC.nc" ! default = "ice_shelf_vel.nc"
+                                ! The file from which the velocity is read.
+BED_TOPO_FILE = "MPM_IC.nc"     ! default = "ice_shelf_vel.nc"
+                                ! The file from which the bed elevation is read.
+USE_MPM = True                  !   [Boolean] default = False
+                                ! If true, use the simplified Material Point Method (sMPM) for Lagrangian
+                                ! thickness evolution and particle tracking. The existing SSA velocity solver is
+                                ! retained.
+ICE_SMB_CONFIG = "FILE"         ! default = "CONSTANT"
+                                ! This specifies how the initial ice surface mass balance parameter is
+                                ! specified. Valid values are: CONSTANT and FILE.
+ICE_SMB_FILE = "MPM_IC.nc"      ! default = "ice_SMB.nc"
+                                ! The file from which the ice surface mass balance is read.
+ICE_SMB_VARNAME = "smb"         ! default = "SMB"
+                                ! The variable to use as surface mass balance.
+DAYMAX = 150.0                  !   [years]
+                                ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
+                                ! also sets the potential end time of the present run segment if the end time is
+                                ! not set via ocean_solo_nml in input.nml.
+RESTART_CONTROL = -1            ! default = 1
+                                ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
+                                ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file. A
+                                ! non-time-stamped restart file is saved at the end of the run segment for any
+                                ! non-negative value.

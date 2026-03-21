@@ -1,0 +1,23 @@
+! MOM_IS_input -- Ice shelf non-dynamics parameters for the MPM Weertman test.
+
+! === module MOM_ice_shelf ===
+! ICE_SHELF = True is set in MOM_input
+ADVECT_SHELF = False         ! MPM handles thickness advection; no Eulerian advection
+
+! Thermodynamics off
+SHELF_THERMO = False
+
+! Densities
+DENSITY_ICE = 910.0         ! [kg m-3]
+RHO_0 = 1028.0              ! [kg m-3] ocean reference density
+
+! Ice thickness: read from NetCDF file
+ICE_PROFILE_CONFIG = "FILE"
+ICE_THICKNESS_FILE = "MPM_IC.nc"
+ICE_THICKNESS_VARNAME = "h_shelf"
+ICE_AREA_VARNAME = "shelf_area"
+
+! Surface mass balance: zero (purely dynamic test)
+ICE_SMB_CONFIG = "FILE"
+ICE_SMB_FILE = "MPM_IC.nc"
+ICE_SMB_VARNAME = "smb"
