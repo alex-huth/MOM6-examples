@@ -7,9 +7,10 @@ ADVECT_SHELF = False         ! MPM handles thickness advection; no Eulerian adve
 ! Thermodynamics off
 SHELF_THERMO = False
 
-! Densities
+! Physical constants (Huth et al. 2021)
 DENSITY_ICE = 910.0         ! [kg m-3]
 RHO_0 = 1028.0              ! [kg m-3] ocean reference density
+G_EARTH = 9.81              ! [m s-2]
 
 ! Ice thickness: read from NetCDF file
 ICE_PROFILE_CONFIG = "FILE"

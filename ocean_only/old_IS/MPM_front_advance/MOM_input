@@ -1,0 +1,90 @@
+! MOM_input for the MPM front-advance test.
+!
+! Same channel geometry as MPM_flowband but the ice front starts at x = 300 km.
+! Open ocean occupies x in [300, 500 km].  Particles advance into new cells and
+! the front should reach ~177 km past its initial position after 300 yr
+! (Huth et al. 2021, Eq. 47: x_front = x_front_0 + u_0 * t * exp(...)).
+!
+! SHELF_MOVING_FRONT = True allows hmask to expand as particles enter new cells.
+
+! === module MOM_domains ===
+REENTRANT_X = False
+REENTRANT_Y = False
+NIGLOBAL = 20             ! 20 cells x 25 km = 500 km
+NJGLOBAL = 3              ! 3 cells x 25 km = 75 km
+
+! === module MOM_verticalGrid ===
+NK = 1
+
+! === module MOM ===
+DT = 86400.0              ! [s] dummy ocean timestep
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "cartesian"
+AXIS_UNITS = "k"
+SOUTHLAT = 0.0
+LENLAT = 75.0             ! [km]
+WESTLON = 0.0
+LENLON = 500.0            ! [km]
+TOPO_CONFIG = "flat"
+MAXIMUM_DEPTH = 1500.0    ! [m]
+MINIMUM_DEPTH = 0.0
+
+! === module MOM_ice_shelf (driver) ===
+ICE_SHELF = True
+ICE_VELOCITY_TIMESTEP = 31536000.0   ! [s] = 1 yr
+TIMEUNIT = 31536000.0
+DAYMAX = 300.0            ! [yr]
+RESTART_CONTROL = -1
+
+! === module MOM_ice_shelf_dyn ===
+DYNAMIC_SHELF_MASS = True
+ADVECT_SHELF = False
+SHELF_MOVING_FRONT = True ! allow the calving front to advance
+
+! Rheology
+GLEN_EXPONENT = 3
+ICE_VISCOSITY_COMPUTE = "MODEL"
+NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4
+ICE_A_GLEN_CONFIG = "CONSTANT"
+A_GLEN = 1.0e-25
+
+! Basal friction: none (floating shelf)
+ICE_BASAL_FRICTION_CONFIG = "CONSTANT"
+BASAL_FRICTION_COEFF = 0.0
+BASAL_FRICTION_EXP = 1.0
+
+! Boundary conditions: analytic channel, no input files
+ICE_BOUNDARY_CONFIG = "CHANNEL"
+INPUT_VEL_ICE_SHELF = 6.342e-6 ! [m s-1] = 200 m yr-1
+INPUT_THICK_ICE_SHELF = 500.0 ! [m]
+
+ICE_FLOW_CONFIG = "ZERO"
+
+! Ice profile: shelf covers x in [0, 300 km]; open ocean beyond
+ICE_PROFILE_CONFIG = "CHANNEL"
+SHELF_MAX_DRAFT = 500.0   ! [m]
+SHELF_MIN_DRAFT = 500.0   ! [m]
+FLAT_SHELF_WIDTH = 0.0
+SHELF_SLOPE_SCALE = 0.0
+SHELF_EDGE_POS_0 = 300.0  ! [km] initial calving front position
+
+! Densities
+DENSITY_ICE = 918.0
+RHO_0 = 1028.0
+
+! Solver
+CONJUGATE_GRADIENT_TOLERANCE = 1.0e-6
+ICE_NONLINEAR_TOLERANCE = 1.0e-4
+CONJUGATE_GRADIENT_MAXIT = 2000
+
+! MPM
+USE_MPM = True
+MPM_N_PER_CELL = 4
+MPM_SPLIT_FACTOR = 2.0
+MPM_FLIP_ALPHA = 1.0
+
+ENERGYSAVEDAYS = 365.0

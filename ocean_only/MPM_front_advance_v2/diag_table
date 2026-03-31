@@ -1,13 +1,17 @@
 "MPM_front_advance"
 1 1 1 0 0 0
-"ice_shelf", 1825, "days", 1, "days", "Time"
+"ice_shelf_%4yr_%3dy", 365,"days",1,"days","Time",365,"days"
 
-#=====================
-# Ice shelf diagnostics (output every ~5 yr = 1825 days)
-#=====================
-"ice_shelf_model", "h_shelf",     "h_shelf",     "ice_shelf", "all", .false., "none", 2
-"ice_shelf_model", "h_mask",      "h_mask",      "ice_shelf", "all", .false., "none", 2
-"ice_shelf_model", "u_shelf",     "u_shelf",     "ice_shelf", "all", .false., "none", 2
-"ice_shelf_model", "v_shelf",     "v_shelf",     "ice_shelf", "all", .false., "none", 2
-"ice_shelf_model", "shelf_speed", "shelf_speed", "ice_shelf", "all", .false., "none", 2
-"ice_shelf_model", "area_shelf_h","area_shelf_h","ice_shelf", "all", .false., "none", 2
+"ice_shelf_model", "h_shelf",        "h_shelf",        "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "h_mask",         "h_mask",         "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "u_shelf",        "u_shelf",        "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "v_shelf",        "v_shelf",        "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "shelf_speed",    "shelf_speed",    "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "area_shelf_h",   "area_shelf_h",   "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "u_mask",         "u_mask",         "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "v_mask",         "v_mask",         "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "ice_ground_frac","ice_ground_frac","ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "float_cond",     "float_cond",     "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "ice_visc",       "ice_visc",       "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "npart_per_cell", "npart_per_cell", "ice_shelf_%4yr_%3dy", "all", .false., "none", 2
+"ice_shelf_model", "reweight_MPM",   "reweight_MPM",   "ice_shelf_%4yr_%3dy", "all", .false., "none", 2

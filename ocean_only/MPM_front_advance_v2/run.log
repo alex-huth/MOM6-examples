@@ -1,0 +1,319 @@
+NOTE: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+NOTE: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   200000.
+NOTE: ======== Model being driven by ice_shelf_driver ========
+NOTE: callTree: o Program Shelf_main, ice_shelf_driver.F90
+NOTE: open_param_file: MOM_input has been opened successfully.
+NOTE: open_param_file: MOM_IS_input has been opened successfully.
+NOTE: open_param_file: MOM_IS_dynamic_input has been opened successfully.
+NOTE: open_param_file: MOM_override has been opened successfully.
+
+WARNING: MOM_file_parser : ICE_SHELF occurs more times than is permitted. Line: 'ICE_SHELF = True' in file MOM_IS_input is being ignored.
+
+
+WARNING: MOM_file_parser : ICE_VELOCITY_TIMESTEP over-ridden.  Line: 'ICE_VELOCITY_TIMESTEP = 2628000.0' in file MOM_override.
+
+NOTE: callTree: o Start of ice shelf initialization.
+NOTE: diag_manager_mod::diag_manager_init: prepend_date only supported when diag_manager_init is called with time_init present.
+NOTE: diag_manager_mod::diag_manager_init: You are using the legacy version of the diag table
+ MOM domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =   90
+  Y-AXIS =   15
+ MOMc domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =   45
+  Y-AXIS =    7
+
+WARNING: create_dyn_horgrid called with an associated horgrid_type.
+
+ MOM domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =   90
+  Y-AXIS =   15
+ MOM domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =   45
+  Y-AXIS =    7
+NOTE: callTree: ---> MOM_initialize_fixed(), MOM_fixed_initialization.F90
+NOTE: callTree:    ---> set_grid_metrics(), MOM_grid_initialize.F90
+NOTE: callTree:       ---> set_grid_metrics_cartesian(), MOM_grid_initialize.F90
+NOTE: callTree:       <--- set_grid_metrics_cartesian()
+NOTE: callTree:       ---> set_derived_metrics(), MOM_grid_initialize.F90
+NOTE: callTree:       <--- set_derived_metrics()
+NOTE: callTree:    <--- set_grid_metrics()
+NOTE: callTree:    ---> initialize_topography_named(), MOM_shared_initialization.F90
+NOTE:   MOM_shared_initialization.F90, initialize_topography_named: TOPO_CONFIG = flat
+NOTE: callTree:    <--- initialize_topography_named()
+NOTE: callTree:    ---> limit_topography(), MOM_shared_initialization.F90
+NOTE: callTree:    <--- limit_topography()
+NOTE: callTree:    ---> initialize_masks(), MOM_grid_initialize.F90
+NOTE: callTree:    <--- initialize_masks()
+NOTE: callTree:    ---> MOM_initialize_rotation(), MOM_shared_initialization.F90
+NOTE: callTree:       ---> set_rotation_planetary(), MOM_shared_initialization.F90
+NOTE: callTree:       <--- set_rotation_planetary()
+NOTE: callTree:    <--- MOM_initialize_rotation()
+NOTE: callTree:    ---> MOM_calculate_grad_Coriolis(), MOM_shared_initialization.F90
+NOTE: callTree:    <--- MOM_calculate_grad_Coriolis()
+NOTE: callTree: <--- MOM_initialize_fixed()
+NOTE: callTree: ---> write_ocean_geometry_file()
+ MOM domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =   90
+  Y-AXIS =   15
+ MOM domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =   45
+  Y-AXIS =    7
+
+WARNING: Open_file is appending .nc to the filename ./ocean_geometry
+
+NOTE: callTree: <--- write_ocean_geometry_file()
+NOTE:   MOM_grid.F90, MOM_grid_init: allocating metrics
+NOTE: callTree: o returned from diag_mediator_init()
+ MOM_Ice_Shelf_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =   90
+  Y-AXIS =   15
+ MOM_Ice_Shelf_inc domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =   45
+  Y-AXIS =    7
+NOTE:   MOM_grid.F90, MOM_grid_init: allocating metrics
+ MOM_Ice_Shelf_in domain decomposition
+whalo =    4, ehalo =    4, shalo =    4, nhalo =    4
+  X-AXIS =   90
+  Y-AXIS =   15
+ MOM_Ice_Shelf_in domain decomposition
+whalo =    2, ehalo =    2, shalo =    2, nhalo =    2
+  X-AXIS =   45
+  Y-AXIS =    7
+NOTE: callTree: ---> set_grid_metrics(), MOM_grid_initialize.F90
+NOTE: callTree:    ---> set_grid_metrics_cartesian(), MOM_grid_initialize.F90
+NOTE: callTree:    <--- set_grid_metrics_cartesian()
+NOTE: callTree:    ---> set_derived_metrics(), MOM_grid_initialize.F90
+NOTE: callTree:    <--- set_derived_metrics()
+NOTE: callTree: <--- set_grid_metrics()
+NOTE: callTree: ---> initialize_topography_named(), MOM_shared_initialization.F90
+NOTE:   MOM_shared_initialization.F90, initialize_topography_named: TOPO_CONFIG = flat
+NOTE: callTree: <--- initialize_topography_named()
+NOTE: callTree: ---> limit_topography(), MOM_shared_initialization.F90
+NOTE: callTree: <--- limit_topography()
+NOTE: interpret_eos_selection: equation of state set to "WRIGHT_FULL"
+NOTE: MOM_ice_shelf.F90, initialize_ice_shelf: allocating fluxes in solo mode.
+NOTE: Initialize_ice_thickness_from_file: reading thickness
+
+WARNING: Previous msg:REENTRANT_X = False             !   [Boolean] default = True
+
+
+WARNING: New message :REENTRANT_X = False             !   [Boolean] default = False
+
+
+WARNING: Encountered inconsistent documentation line for parameter REENTRANT_X!
+
+NOTE:   MOM_ice_shelf_init_profile.F90, initialize_b_c_s_from_file: reading b.c.s
+
+WARNING: Previous msg:ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_h.nc"
+
+
+WARNING: New message :ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_thick.nc"
+
+
+WARNING: Encountered inconsistent documentation line for parameter ICE_THICKNESS_FILE!
+
+NOTE:   MOM_ice_shelf_init_profile.F90, initialize_velocity_from_file: reading velocity
+
+WARNING: MOM_file_parser : MPM_N_PER_CELL over-ridden.  Line: 'MPM_N_PER_CELL = 16' in file MOM_override.
+
+
+WARNING: MOM_file_parser : MPM_SPLIT_FACTOR over-ridden.  Line: 'MPM_SPLIT_FACTOR = 1.5' in file MOM_override.
+
+
+WARNING: MOM_file_parser : MPM_FLIP_ALPHA over-ridden.  Line: 'MPM_FLIP_ALPHA = 1' in file MOM_override.
+
+NOTE: MPM_init: seeded 9840 particles.
+NOTE: MOM_ice_shelf_dyn: MPM mode enabled.
+NOTE:   MOM_ice_shelf.F90, initialize_ice_shelf: reading SMB parameter
+NOTE: callTree: o End of ice shelf initialization.
+
+WARNING: Unused line in MOM_input : DT = 86400.0
+
+NOTE: close_param_file: MOM_input has been closed successfully.
+NOTE: close_param_file: MOM_IS_input has been closed successfully.
+NOTE: close_param_file: MOM_IS_dynamic_input has been closed successfully.
+NOTE: close_param_file: MOM_override has been closed successfully.
+
+WARNING: open_ASCII_file: File ./CPU_stats opened WRITEONLY already exists!
+
+NOTE: callTree: loop Main loop, Shelf_driver.F90       1
+NOTE: solo_step_ice_shelf:  TIME in ice shelf call, yrs:    0.0000000000000000
+NOTE: solo_step_ice_shelf:  Ice model timestep =    2628000.0000000000       seconds
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.0000000000000000
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    7.4380545217978919E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    4.5246567617454075E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.8290073914860516E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.8046711075872895E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.1676086947167130E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    7.6282677182513787E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    5.0168871210633358E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    3.3142775319595823E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.1961013143722355E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.4581210790188212E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    9.6944281009754183E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    6.4512427834720440E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    4.2956287785399900E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.8614428222120935E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.9066024019151711E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.2706123173077016E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in            1  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    8.4687226737396800E-005
+NOTE:  ice_shelf_solve_outer: switching to Newton iterations at iter =           18
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    8.4687226737396800E-005
+NOTE:  ice_shelf_solve_outer: exiting nonlinear solve after           18  iterations
+
+WARNING: open_ASCII_file: File ./ice_shelf.stats opened WRITEONLY already exists!
+
+NOTE: callTree: <--- Main loop
+NOTE: callTree: loop Main loop, Shelf_driver.F90       2
+NOTE: solo_step_ice_shelf:  TIME in ice shelf call, yrs:    8.3333333333333329E-002
+NOTE: solo_step_ice_shelf:  Ice model timestep =    2628000.0000000000       seconds
+NOTE:  ice_shelf_solve_outer: linear solve done in           31  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.9971888567990925
+NOTE:  ice_shelf_solve_outer: linear solve done in           33  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.7177396178994750
+NOTE:  ice_shelf_solve_outer: linear solve done in           33  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.4001304140968889
+NOTE:  ice_shelf_solve_outer: linear solve done in           34  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.0470715038925007
+NOTE:  ice_shelf_solve_outer: linear solve done in           36  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.74062299734939552
+NOTE:  ice_shelf_solve_outer: linear solve done in           38  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.50905845626478097
+NOTE:  ice_shelf_solve_outer: linear solve done in           40  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.34568103763623786
+NOTE:  ice_shelf_solve_outer: linear solve done in           40  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.23361648867274115
+NOTE:  ice_shelf_solve_outer: linear solve done in           41  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.15744083102576520
+NOTE:  ice_shelf_solve_outer: linear solve done in           40  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =   0.10583643007003288
+NOTE:  ice_shelf_solve_outer: linear solve done in           44  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    7.0982862735242860E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in           41  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    4.7518213096789760E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in           44  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    3.1766397869270831E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in           46  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.1215903331483224E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in           55  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.4160534624422783E-002
+NOTE:  ice_shelf_solve_outer: linear solve done in           45  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    9.4475495120011337E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           54  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    6.3015109719865214E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           46  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    4.2024076215394102E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           54  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.8022472438089855E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           39  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.8684716767825708E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           54  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.2458021434178423E-003
+NOTE:  ice_shelf_solve_outer: linear solve done in           50  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    8.3061698546888418E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           46  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    5.5379099423649052E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           50  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    3.6922142708527083E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           46  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    2.4616449504311864E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           54  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.6412033715698855E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           39  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    1.0942043298879868E-004
+NOTE:  ice_shelf_solve_outer: linear solve done in           54  iterations
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    7.2951433636585786E-005
+NOTE:  ice_shelf_solve_outer: switching to Newton iterations at iter =           28
+NOTE:  ice_shelf_solve_outer: nonlinear fractional residual =    7.2951433636585786E-005
+NOTE:  ice_shelf_solve_outer: exiting nonlinear solve after           28  iterations
+NOTE: callTree: <--- Main loop
+NOTE: callTree: loop Main loop, Shelf_driver.F90       3
+NOTE: solo_step_ice_shelf:  TIME in ice shelf call, yrs:   0.16666666666666666
+
+FATAL: MOM_ice_shelf:solo_step_ice_shelf: abnormally small timestep  Ice model timestep =    30.446125156090105       seconds
+
+
+Could not print backtrace: executable file is not an executable
+#0  0x102da6103
+#1  0x101732b6b
+#2  0x100f2437f
+#3  0x10107ed63
+#4  0x10196319f
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+
+WARNING: MOM_file_parser : ICE_SHELF occurs more times than is permitted. Line: 'ICE_SHELF = True' in file MOM_IS_input is being ignored.
+
+
+WARNING: MOM_file_parser : ICE_VELOCITY_TIMESTEP over-ridden.  Line: 'ICE_VELOCITY_TIMESTEP = 2628000.0' in file MOM_override.
+
+
+WARNING: create_dyn_horgrid called with an associated horgrid_type.
+
+
+WARNING: Open_file is appending .nc to the filename ./ocean_geometry
+
+
+WARNING: Previous msg:REENTRANT_X = False             !   [Boolean] default = True
+
+
+WARNING: New message :REENTRANT_X = False             !   [Boolean] default = False
+
+
+WARNING: Encountered inconsistent documentation line for parameter REENTRANT_X!
+
+
+WARNING: Previous msg:ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_h.nc"
+
+
+WARNING: New message :ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_thick.nc"
+
+
+WARNING: Encountered inconsistent documentation line for parameter ICE_THICKNESS_FILE!
+
+
+WARNING: MOM_file_parser : MPM_N_PER_CELL over-ridden.  Line: 'MPM_N_PER_CELL = 16' in file MOM_override.
+
+
+WARNING: MOM_file_parser : MPM_SPLIT_FACTOR over-ridden.  Line: 'MPM_SPLIT_FACTOR = 1.5' in file MOM_override.
+
+
+WARNING: MOM_file_parser : MPM_FLIP_ALPHA over-ridden.  Line: 'MPM_FLIP_ALPHA = 1' in file MOM_override.
+
+
+WARNING: Unused line in MOM_input : DT = 86400.0
+
+
+WARNING: open_ASCII_file: File ./CPU_stats opened WRITEONLY already exists!
+
+
+WARNING: open_ASCII_file: File ./ice_shelf.stats opened WRITEONLY already exists!
+
+
+FATAL: MOM_ice_shelf:solo_step_ice_shelf: abnormally small timestep  Ice model timestep =    30.446125156090105       seconds
+

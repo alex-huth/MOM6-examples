@@ -1,0 +1,6 @@
+Abort(136463503): Fatal error in internal_Init: Other MPI error, error stack:
+internal_Init(70).................: MPI_Init(argc=0x0, argv=0x0) failed
+MPII_Init_thread(261).............: 
+MPID_Init(549)....................: 
+MPIDI_OFI_init_local(716).........: 
+MPIDI_OFI_create_vci_context(1043): OFI call ep_enable failed (default nic=en0: Operation not permitted)

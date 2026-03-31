@@ -1,6 +1,11 @@
+! Run-control namelist for the MPM flow-band steady-state test.
+! Domain: 500 km x 75 km Cartesian channel, uniform floating ice shelf.
+! The model integrates to t=150 yr; the SSA velocity should match the
+! Weertman analytic solution to < 1% L2 error across the free domain.
+
  &ice_solo_nml
     date_init = 0, 0, 0, 0, 0, 0,
-    calendar = 'NOLEAP',
+    calendar = 'no_calendar',
     months = 0,
     days   = 0,
     hours  = 0,
@@ -12,7 +17,7 @@
     input_filename = 'n',
     restart_input_dir = 'INPUT/',
     restart_output_dir = 'RESTART/',
-    parameter_filename = 'MOM_input', 'MOM_IS_input', 'MOM_IS_dynamic_input', 'MOM_override'  /
+    parameter_filename = 'MOM_input', 'MOM_override'  /
 
  &fms_nml
     clock_grain = 'ROUTINE',

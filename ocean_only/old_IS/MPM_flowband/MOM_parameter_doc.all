@@ -3,7 +3,7 @@
 ! === module SHELF_main (ice_shelf_driver) ===
 ICE_SHELF = True                !   [Boolean] default = False
                                 ! If true, call the code to apply an ice shelf model over some of the domain.
-ICE_VELOCITY_TIMESTEP = 2.628E+06 !   [s]
+ICE_VELOCITY_TIMESTEP = 3.1536E+07 !   [s]
                                 ! The time step for changing forcing, coupling with other components, or
                                 ! potentially writing certain diagnostics.
 
@@ -15,10 +15,10 @@ REENTRANT_Y = False             !   [Boolean] default = False
 TRIPOLAR_N = False              !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 90                   !
+NIGLOBAL = 20                   !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 8                    !
+NJGLOBAL = 3                    !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NIHALO = 4                      ! default = 4
@@ -48,12 +48,12 @@ AXIS_UNITS = "k"                ! default = "degrees"
 SOUTHLAT = 0.0                  !   [km]
                                 ! The southern latitude of the domain or the equivalent starting value for the
                                 ! y-axis.
-LENLAT = 40.0                   !   [km]
+LENLAT = 75.0                   !   [km]
                                 ! The latitudinal or y-direction length of the domain.
 WESTLON = 0.0                   !   [km] default = 0.0
                                 ! The western longitude of the domain or the equivalent starting value for the
                                 ! x-axis.
-LENLON = 450.0                  !   [km]
+LENLON = 500.0                  !   [km]
                                 ! The longitudinal or x-direction length of the domain.
 RAD_EARTH = 6.378E+06           !   [m] default = 6.378E+06
                                 ! The radius of the Earth.
@@ -139,7 +139,7 @@ REFERENCE_HEIGHT = 0.0          !   [m] default = 0.0
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
-G_EARTH = 9.81                  !   [m s-2] default = 9.8
+G_EARTH = 9.8                   !   [m s-2] default = 9.8
                                 ! The gravitational acceleration of the Earth.
 RHO_0 = 1028.0                  !   [kg m-3] default = 1035.0
                                 ! The mean ocean density used with BOUSSINESQ true to calculate accelerations
@@ -364,11 +364,11 @@ TFREEZE_T_IS_POTT = True        !   [Boolean] default = True
                                 ! When True, the model will check if the model internal temperature is potential
                                 ! temperature.  If the model uses conservative temperature, a conversion will be
                                 ! applied.
-DENSITY_ICE = 910.0             !   [kg m-3] default = 917.0
+DENSITY_ICE = 918.0             !   [kg m-3] default = 917.0
                                 ! A typical density of ice.
 INPUT_FLUX_ICE_SHELF = 0.0      !   [m2 s-1] default = 0.0
                                 ! volume flux at upstream boundary
-INPUT_THICK_ICE_SHELF = 1000.0  !   [m] default = 1000.0
+INPUT_THICK_ICE_SHELF = 500.0   !   [m] default = 1000.0
                                 ! flux thickness at upstream boundary
 MIN_THICKNESS_SIMPLE_CALVE = 0.0 !   [m] default = 0.0
                                 ! Min thickness rule for the very simple calving law
@@ -414,19 +414,9 @@ ALTERNATE_FIRST_DIRECTION_IS = False !   [Boolean] default = False
 CALC_FLUX_INOUT = False         !   [Boolean] default = False
                                 ! If true, during every advection call, calculate and output the total flux
                                 ! in/out of the domain (e.g. at S. Pole)
-ICE_PROFILE_CONFIG = "FILE"     !
+ICE_PROFILE_CONFIG = "CHANNEL"  !
                                 ! This specifies how the initial ice profile is specified. Valid values are:
                                 ! CHANNEL, FILE, and USER.
-ICE_THICKNESS_FILE = "MPM_IC.nc" ! default = "ice_shelf_h.nc"
-                                ! The file from which the bathymetry is read.
-LEN_SIDE_STRESS = 0.0           !   [axis_units] default = 0.0
-                                ! position past which shelf sides are stress free.
-ICE_THICKNESS_VARNAME = "h_shelf" ! default = "h_shelf"
-                                ! The name of the thickness variable in ICE_THICKNESS_FILE.
-ICE_AREA_VARNAME = "shelf_area" ! default = "area_shelf_h"
-                                ! The name of the area variable in ICE_THICKNESS_FILE.
-MELT_MASK_VARNAME = "melt_mask" ! default = "melt_mask"
-                                ! The name of the melt mask variable in ICE_THICKNESS_FILE.
 
 ! === module MOM_ice_shelf_dyn ===
 GROUNDING_LINE_INTERP_SUBGRID_N = 0 ! default = 0
@@ -448,7 +438,7 @@ MIN_ICE_VISC = 0.0              !   [Pa s] default = 0.0
                                 ! min. allowed Glen's law ice viscosity
 GLEN_EXPONENT = 3.0             !   [none] default = 3.0
                                 ! nonlinearity exponent in Glen's Law
-MIN_STRAIN_RATE_GLEN = 1.0E-22  !   [s-1] default = 1.0E-19
+MIN_STRAIN_RATE_GLEN = 1.0E-19  !   [s-1] default = 1.0E-19
                                 ! min. strain rate to avoid infinite Glen's law viscosity
 BASAL_FRICTION_EXP = 1.0        !   [none]
                                 ! Exponent in sliding law   au_b = C u^(n_basal_fric)
@@ -460,11 +450,11 @@ CF_PostPeak = 1.0               !   [none] default = 1.0
                                 ! Coulomb friction post peak exponent
 CF_Max = 0.5                    !   [none] default = 0.5
                                 ! Coulomb friction maximum coefficient
-CONJUGATE_GRADIENT_TOLERANCE = 0.1 !   [nondim] default = 1.0E-06
+CONJUGATE_GRADIENT_TOLERANCE = 1.0E-06 !   [nondim] default = 1.0E-06
                                 ! tolerance in CG solver, relative to initial residual
-ICE_NONLINEAR_TOLERANCE = 1.0E-05 !   [nondim] default = 1.0E-06
+ICE_NONLINEAR_TOLERANCE = 1.0E-04 !   [nondim] default = 1.0E-06
                                 ! nonlin tolerance in iterative velocity solve
-NEWTON_AFTER_TOLERANCE = 0.001  !   [none] default = 1.0E-05
+NEWTON_AFTER_TOLERANCE = 1.0E-04 !   [none] default = 1.0E-04
                                 ! Switch from Picard to Newton iterations in the nonlinear ice velocity solve
                                 ! when the fractional nonlinear residual falls below this tolerance.
 NEWTON_ADAPT_CG_TOL = True      !   [Boolean] default = True
@@ -513,107 +503,31 @@ BASAL_FRICTION_COEFF = 0.0      !   [Pa (s m-1)^(n_basal_fric)] default = 5.0E+1
 ICE_A_GLEN_CONFIG = "CONSTANT"  !
                                 ! This specifies how the initial ice-stiffness parameter is specified. Valid
                                 ! values are: CONSTANT and FILE.
-A_GLEN = 1.458E-25              !   [Pa-n_g s-1] default = 2.261E-25
+A_GLEN = 1.0E-25                !   [Pa-n_g s-1] default = 2.261E-25
                                 ! Ice-stiffness parameter.
-ICE_BOUNDARY_CONFIG = "FILE"    ! default = "FILE"
+ICE_BOUNDARY_CONFIG = "CHANNEL" ! default = "FILE"
                                 ! How to initialize ice shelf boundary conditions. Valid values are FILE (read
                                 ! from ICE_SHELF_BC_FILE) and CHANNEL (analytic channel flow, no input file
                                 ! required).
-ICE_SHELF_BC_FILE = "MPM_IC.nc" ! default = "ice_shelf_bc.nc"
-                                ! The file from which the boundary conditions are read.
-ICE_THICKNESS_MASK_VARNAME = "h_mask" ! default = "h_mask"
-                                ! The name of the icethickness mask variable in ICE_THICKNESS_FILE.
-ICE_UBDRYMSK_VARNAME = "ufacemask" ! default = "ufacemask"
-                                ! The name of the ice-shelf ubdrymask variable in ICE_SHELF_BC_FILE.
-ICE_VBDRYMSK_VARNAME = "vfacemask" ! default = "vfacemask"
-                                ! The name of the ice-shelf vbdrymask variable in ICE_SHELF_BC_FILE.
-ICE_UMASK_VARNAME = "ufacemask" ! default = "umask"
-                                ! The name of the ice-shelf ubdrymask variable in ICE_SHELF_BC_FILE.
-ICE_VMASK_VARNAME = "vfacemask" ! default = "vmask"
-                                ! The name of the ice-shelf vbdrymask variable in ICE_SHELF_BC_FILE.
-ICE_UBDRYVAL_VARNAME = "ubdry_val" ! default = "ubdry_val"
-                                ! The name of the ice-shelf ice_shelf ubdry variable in ICE_SHELF_BC_FILE.
-ICE_VBDRYVAL_VARNAME = "vbdry_val" ! default = "vbdry_val"
-                                ! The name of the ice-shelf ice_shelf vbdry variable in ICE_SHELF_BC_FILE.
-ICE_FLOW_CONFIG = "FILE"        ! default = "FILE"
+INPUT_VEL_ICE_SHELF = 6.342E-06 !   [m s-1] default = 0.0
+                                ! inflow ice velocity at upstream boundary
+LEN_SIDE_STRESS = 0.0           !   [km] default = 0.0
+                                ! maximum position of no-flow condition in along-flow direction
+ICE_FLOW_CONFIG = "ZERO"        ! default = "FILE"
                                 ! How to initialize ice shelf velocities and bed elevation. Valid values are
                                 ! FILE (read from ICE_VELOCITY_FILE) and ZERO (zero velocities, fully floating,
                                 ! flat bed).
-ICE_VELOCITY_FILE = "MPM_IC.nc" ! default = "ice_shelf_vel.nc"
-                                ! The file from which the velocity is read.
-ICE_U_VEL_VARNAME = "u_shelf"   ! default = "u_shelf"
-                                ! The name of the u velocity variable in ICE_VELOCITY_FILE.
-ICE_V_VEL_VARNAME = "v_shelf"   ! default = "v_shelf"
-                                ! The name of the v velocity variable in ICE_VELOCITY_FILE.
-ICE_FLOAT_FRAC_VARNAME = "float_frac" ! default = "float_frac"
-                                ! The name of the ice float fraction (grounding fraction) variable in
-                                ! ICE_VELOCITY_FILE.
-BED_TOPO_FILE = "MPM_IC.nc"     ! default = "ice_shelf_vel.nc"
-                                ! The file from which the bed elevation is read.
-BED_TOPO_VARNAME = "depth"      ! default = "depth"
-                                ! The name of the bed elevation variable in ICE_INPUT_FILE.
-USE_MPM = True                  !   [Boolean] default = False
+USE_MPM = False                 !   [Boolean] default = False
                                 ! If true, use the simplified Material Point Method (sMPM) for Lagrangian
                                 ! thickness evolution and particle tracking. The existing SSA velocity solver is
                                 ! retained.
-MPM_N_PER_CELL = 4              ! default = 4
-                                ! Number of material points to seed per ice-covered cell (must be a perfect
-                                ! square, e.g. 4 or 9).
-MPM_SPLIT_FACTOR = 1.5          !   [nondim] default = 1.5
-                                ! Split particle when its length exceeds this factor times original length (Huth
-                                ! et al. 2021 use 1.5).
-MPM_FLIP_ALPHA = 0.0            !   [nondim] default = 1.0
-                                ! FLIP blending coefficient; 1 = pure FLIP (no damping), 0 = pure PIC. Ignored
-                                ! when MPM_TRANSFER = APIC.
-MPM_TRANSFER = "FLIP"           ! default = "APIC"
-                                ! Particle-grid velocity transfer scheme. FLIP uses the FLIP/PIC blended update.
-                                ! APIC (Affine Particle-in-Cell) uses a local affine correction that eliminates
-                                ! angular momentum error without artificial viscosity.
-MPM_REWEIGHT = True             !   [Boolean] default = False
-                                ! If true, multiply particle volumes by areaT/area_shelf_h when assembling the
-                                ! stiffness matrix (sMPM-style reweighting to fill cells). For GIMP, leave false
-                                ! so raw PVolume is used.
-MPM_BASIS = "sMPM"              ! default = "GIMP"
-                                ! Shape function basis for material points. 'GIMP' (default) uses generalized
-                                ! interpolation shape functions with extended support proportional to particle
-                                ! size (Bardenhagen & Kober 2004; Huth et al. 2021 §4.1). 'sMPM' uses standard
-                                ! bilinear tent functions with compact nodal support (4 nodes per particle).
-MPM_H_MIN = 1.0                 !   [m] default = 1.0
-                                ! Minimum ice thickness per particle.
-MPM_USE_CONSTANT_AGLEN = True   !   [Boolean] default = True
-                                ! If true, use the reference Glen A for all particles.
-MPM_VTU_DIR = "VTU"             ! default = "VTU"
-                                ! Directory for VTU particle visualization files.
-MPM_VTU_DT = 365.0              !   [days] default = 0.0
-                                ! Time interval for VTU particle output, in days. 0 disables VTU output.
-MPM_1D_TEST = True              !   [Boolean] default = False
-                                ! If true, enforce analytical Weertman thickness and velocity on particles in
-                                ! hmask=3 cells for the 1D flow-band verification test.
-MPM_1D_INFLOW_X = 200.0         !   [km] default = 0.0
-                                ! x-position of the inflow boundary in km (geoLon units). Extension domain is
-                                ! west of this; active domain is east.
-MPM_1D_H0 = 600.0               !   [m] default = 600.0
-                                ! Inflow boundary ice thickness for 1D test.
-MPM_1D_V0 = 300.0               !   [m yr-1] default = 300.0
-                                ! Inflow boundary ice velocity for 1D test.
-ICE_H_NODEMASK_MPM_VARNAME = "h_node_mask" ! default = "h_node_mask"
-                                ! Variable name for the MPM thickness Dirichlet node mask in ICE_SHELF_BC_FILE.
-ICE_H_NODEBDRY_MPM_VARNAME = "h_node_bdry_val" ! default = "h_node_bdry_val"
-                                ! Variable name for the prescribed thickness at MPM Dirichlet nodes in
-                                ! ICE_SHELF_BC_FILE.
-ICE_U_NODEMASK_MPM_VARNAME = "u_node_mask" ! default = "u_node_mask"
-                                ! Variable name for the MPM u-velocity Dirichlet node mask in ICE_SHELF_BC_FILE.
-ICE_V_NODEMASK_MPM_VARNAME = "v_node_mask" ! default = "v_node_mask"
-                                ! Variable name for the MPM v-velocity Dirichlet node mask in ICE_SHELF_BC_FILE.
 SAVE_INITIAL_CONDS = False      !   [Boolean] default = False
                                 ! If true, save the ice shelf initial conditions.
-ICE_SMB_CONFIG = "FILE"         ! default = "CONSTANT"
+ICE_SMB_CONFIG = "CONSTANT"     ! default = "CONSTANT"
                                 ! This specifies how the initial ice surface mass balance parameter is
                                 ! specified. Valid values are: CONSTANT and FILE.
-ICE_SMB_FILE = "MPM_IC.nc"      ! default = "ice_SMB.nc"
-                                ! The file from which the ice surface mass balance is read.
-ICE_SMB_VARNAME = "smb"         ! default = "SMB"
-                                ! The variable to use as surface mass balance.
+SMB = 0.0                       !   [kg m-2 s-1] default = 0.0
+                                ! Surface mass balance.
 DAYMAX = 150.0                  !   [years]
                                 ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
                                 ! also sets the potential end time of the present run segment if the end time is

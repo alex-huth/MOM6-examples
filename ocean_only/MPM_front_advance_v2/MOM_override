@@ -1,2 +1,28 @@
 ! MOM_override for the MPM front advance test.
 ! Place any parameter overrides here.
+
+#override MPM_SPLIT_FACTOR = 1.5
+#override ICE_VELOCITY_TIMESTEP = 2628000.0
+#override MPM_N_PER_CELL = 4
+#override MPM_FLIP_ALPHA = 1
+#override MPM_TRANSFER = "APIC"
+
+#override CONJUGATE_GRADIENT_TOLERANCE = 1.0E-01
+!#override CONJUGATE_GRADIENT_TOLERANCE = 1.0E-05
+#override ICE_NONLINEAR_TOLERANCE = 1.0E-06
+#override NEWTON_AFTER_TOLERANCE = 1.0E-02
+#override NEWTON_ADAPT_CG_TOL = True
+
+#override MPM_BASIS='sMPM'
+#override MPM_REWEIGHT=True
+
+!#override LENGTH_UPDATE="L_STRAIN"
+
+#override NJGLOBAL = 2
+
+#override NIGLOBAL = 90
+#override LENLAT = 10.0
+
+!For dx=2.5
+!#override NIGLOBAL = 180
+!#override LENLAT = 5.0

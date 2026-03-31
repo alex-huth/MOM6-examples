@@ -5,9 +5,10 @@ ICE_SHELF = True
 DYNAMIC_SHELF_MASS = True   ! ice thickness evolves with MPM
 ADVECT_SHELF = False         ! MPM handles thickness advection
 
-! Densities
+! Physical constants (Huth et al. 2021)
 DENSITY_ICE = 910.0         ! [kg m-3]
 RHO_0 = 1028.0              ! [kg m-3]
+G_EARTH = 9.81              ! [m s-2]
 
 ! Ice thickness: read from NetCDF
 ICE_PROFILE_CONFIG = "FILE"

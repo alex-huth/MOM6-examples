@@ -13,7 +13,7 @@ REENTRANT_X = False             !   [Boolean] default = True
 NIGLOBAL = 90                   !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 8                    !
+NJGLOBAL = 2                    !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -34,7 +34,7 @@ AXIS_UNITS = "k"                ! default = "degrees"
 SOUTHLAT = 0.0                  !   [km]
                                 ! The southern latitude of the domain or the equivalent starting value for the
                                 ! y-axis.
-LENLAT = 40.0                   !   [km]
+LENLAT = 10.0                   !   [km]
                                 ! The latitudinal or y-direction length of the domain.
 LENLON = 450.0                  !   [km]
                                 ! The longitudinal or x-direction length of the domain.
@@ -115,11 +115,11 @@ BASAL_FRICTION_EXP = 1.0        !   [none]
                                 ! Exponent in sliding law   au_b = C u^(n_basal_fric)
 CONJUGATE_GRADIENT_TOLERANCE = 0.1 !   [nondim] default = 1.0E-06
                                 ! tolerance in CG solver, relative to initial residual
-ICE_NONLINEAR_TOLERANCE = 1.0E-05 !   [nondim] default = 1.0E-06
-                                ! nonlin tolerance in iterative velocity solve
-NEWTON_AFTER_TOLERANCE = 0.001  !   [none] default = 1.0E-05
+NEWTON_AFTER_TOLERANCE = 0.01   !   [none] default = 1.0E-06
                                 ! Switch from Picard to Newton iterations in the nonlinear ice velocity solve
                                 ! when the fractional nonlinear residual falls below this tolerance.
+SHELF_MOVING_FRONT = True       !   [Boolean] default = False
+                                ! Specify whether to advance shelf front (and calve).
 ADVECT_SHELF = False            !   [Boolean] default = True
                                 ! If true, advect ice shelf and evolve thickness
 TIMEUNIT = 3.1536E+07           !   [s] default = 8.64E+04
@@ -151,13 +151,6 @@ USE_MPM = True                  !   [Boolean] default = False
                                 ! If true, use the simplified Material Point Method (sMPM) for Lagrangian
                                 ! thickness evolution and particle tracking. The existing SSA velocity solver is
                                 ! retained.
-MPM_FLIP_ALPHA = 0.0            !   [nondim] default = 1.0
-                                ! FLIP blending coefficient; 1 = pure FLIP (no damping), 0 = pure PIC. Ignored
-                                ! when MPM_TRANSFER = APIC.
-MPM_TRANSFER = "FLIP"           ! default = "APIC"
-                                ! Particle-grid velocity transfer scheme. FLIP uses the FLIP/PIC blended update.
-                                ! APIC (Affine Particle-in-Cell) uses a local affine correction that eliminates
-                                ! angular momentum error without artificial viscosity.
 MPM_REWEIGHT = True             !   [Boolean] default = False
                                 ! If true, multiply particle volumes by areaT/area_shelf_h when assembling the
                                 ! stiffness matrix (sMPM-style reweighting to fill cells). For GIMP, leave false
@@ -182,7 +175,7 @@ ICE_SMB_FILE = "MPM_IC.nc"      ! default = "ice_SMB.nc"
                                 ! The file from which the ice surface mass balance is read.
 ICE_SMB_VARNAME = "smb"         ! default = "SMB"
                                 ! The variable to use as surface mass balance.
-DAYMAX = 150.0                  !   [years]
+DAYMAX = 300.0                  !   [years]
                                 ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
                                 ! also sets the potential end time of the present run segment if the end time is
                                 ! not set via ocean_solo_nml in input.nml.

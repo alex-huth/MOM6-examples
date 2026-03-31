@@ -25,22 +25,22 @@
 "ice_shelf_model", "surf_slope_mag_shelf"  [Unused]
     ! long_name: magnitude of surface slope of ice
     ! units: none
-"ice_shelf_model", "u_mask"  [Used]
+"ice_shelf_model", "u_mask"  [Unused]
     ! long_name: mask for u-nodes
     ! units: none
-"ice_shelf_model", "v_mask"  [Used]
+"ice_shelf_model", "v_mask"  [Unused]
     ! long_name: mask for v-nodes
     ! units: none
-"ice_shelf_model", "ice_ground_frac"  [Used]
+"ice_shelf_model", "ice_ground_frac"  [Unused]
     ! long_name: fraction of cell that is grounded
     ! units: none
-"ice_shelf_model", "float_cond"  [Used]
+"ice_shelf_model", "float_cond"  [Unused]
     ! long_name: sub-cell grounding cells
     ! units: none
 "ice_shelf_model", "col_thick"  [Unused]
     ! long_name: ocean column thickness passed to ice model
     ! units: m
-"ice_shelf_model", "ice_visc"  [Used]
+"ice_shelf_model", "ice_visc"  [Unused]
     ! long_name: vi-viscosity
     ! units: Pa m s
 "ice_shelf_model", "taub_beta"  [Unused]
@@ -88,13 +88,7 @@
 "ice_shelf_model", "pdevstress_2"  [Unused]
     ! long_name: min principal ice-shelf deviatoric stress
     ! units: kPa
-"ice_shelf_model", "npart_per_cell"  [Used]
-    ! long_name: Number of active MPM particles per cell
-    ! units: 1
-"ice_shelf_model", "reweight_MPM"  [Used]
-    ! long_name: MPM reweighting factor (areaT / sum PVol)
-    ! units: 1
-"ice_shelf_model", "area_shelf_h"  [Used]
+"ice_shelf_model", "area_shelf_h"  [Unused]
     ! long_name: Ice Shelf Area in cell
     ! units: meter2
 "ice_shelf_model", "shelf_mass"  [Unused]
@@ -145,7 +139,7 @@
 "ice_shelf_model", "frazil"  [Unused]
     ! long_name: Frazil heat rejected by the ocean
     ! units: J m-2
-"ice_shelf_model", "h_mask"  [Used]
+"ice_shelf_model", "h_mask"  [Unused]
     ! long_name: ice shelf thickness mask
     ! units: none
 "ice_shelf_model", "sfc_mass_flux"  [Unused]

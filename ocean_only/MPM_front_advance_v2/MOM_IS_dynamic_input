@@ -1,60 +1,63 @@
 ! MOM_IS_dynamic_input -- Ice shelf dynamics for the MPM front advance test.
 !
-! Ice front initially at x=300km; FILE-based BCs read masks from MPM_IC.nc.
+! Huth et al. 2021, Section 5.1 flow-band experiment.
+! 200 km extension domain + 250 km active domain.
+! H0=600m, v0=300 m/yr, B0=1.9e8 Pa s^(1/3), A=B0^(-3)=1.458e-25 Pa^-3 s^-1
 
-! === module MOM_ice_shelf_dyn (dynamics only -- ICE_SHELF set in MOM_IS_input) ===
-
-! Rheology: Glen n=3, stiffer ice (A=1e-26) to keep front within domain
+! === Rheology: Glen n=3 ===
 GLEN_EXPONENT = 3
 ICE_VISCOSITY_COMPUTE = "MODEL"
 NUMBER_OF_ICE_VISCOSITY_QUADRATURE_POINTS = 4
 ICE_A_GLEN_CONFIG = "CONSTANT"
-A_GLEN = 1.0e-26            ! [Pa^-n s^-1]  stiffer: front advances ~132 km in 300 yr
-MIN_STRAIN_RATE_GLEN = 1.0e-22  ! [s^-1] regularization to prevent infinite viscosity
+A_GLEN = 1.458e-25              ! [Pa^-n s^-1]  B0=1.9e8, A=B0^(-3)
+MIN_STRAIN_RATE_GLEN = 1.0e-22  ! [s^-1] regularization
 
-! Basal friction: none (floating shelf)
+! === Basal friction: none (floating shelf) ===
 ICE_BASAL_FRICTION_CONFIG = "CONSTANT"
 BASAL_FRICTION_COEFF = 0.0
 BASAL_FRICTION_EXP = 1.0
 
-! SSA solver settings
+! === SSA solver ===
 CONJUGATE_GRADIENT_TOLERANCE = 1.0e-6
 ICE_NONLINEAR_TOLERANCE = 1.0e-4
 CONJUGATE_GRADIENT_MAXIT = 2000
 ICE_VELOCITY_TIMESTEP = 31536000.0  ! [s] = 1 yr
 
-! Ice front: allow MPM particles to advance the calving front
+! === Ice front: allow MPM particles to advance the calving front ===
 SHELF_MOVING_FRONT = True
-
-! Grounding line
 GROUNDING_LINE_INTERPOLATE = False
 
-! Boundary conditions: FILE-based masks and values from MPM_IC.nc.
-! ufacemask=2 marks the CFBC calving-front face; ufacemask=5 = open ice face;
-! ufacemask=-2 = ocean; vfacemask=0 = no-slip N/S walls.
+! === Boundary conditions: FILE-based masks and values from MPM_IC.nc ===
 ICE_BOUNDARY_CONFIG = "FILE"
 ICE_SHELF_BC_FILE = "MPM_IC.nc"
 ICE_THICKNESS_MASK_VARNAME = "h_mask"
 ICE_UBDRYMSK_VARNAME = "ufacemask"
 ICE_VBDRYMSK_VARNAME = "vfacemask"
-ICE_UMASK_VARNAME = "ufacemask"    ! override default "umask"
-ICE_VMASK_VARNAME = "vfacemask"    ! override default "vmask"
+ICE_UMASK_VARNAME = "ufacemask"
+ICE_VMASK_VARNAME = "vfacemask"
 ICE_UBDRYVAL_VARNAME = "ubdry_val"
 ICE_VBDRYVAL_VARNAME = "vbdry_val"
 
-! Initial ice velocity: read from file
+! === Initial ice velocity: read from file ===
 ICE_FLOW_CONFIG = "FILE"
 ICE_VELOCITY_FILE = "MPM_IC.nc"
 ICE_U_VEL_VARNAME = "u_shelf"
 ICE_V_VEL_VARNAME = "v_shelf"
 ICE_FLOAT_FRAC_VARNAME = "float_frac"
 
-! Bed topography
+! === Bed topography ===
 BED_TOPO_FILE = "MPM_IC.nc"
 BED_TOPO_VARNAME = "depth"
 
 ! === MPM settings ===
-USE_MPM = True                  ! MPM mode: particles carry thickness and advect Lagrangially
+USE_MPM = True                  ! MPM mode: particles carry thickness and advect Lagrangianly
 MPM_N_PER_CELL = 4
-MPM_SPLIT_FACTOR = 2.0
+MPM_SPLIT_FACTOR = 1.5            ! Huth et al. 2021
 MPM_FLIP_ALPHA = 1.0
+MPM_VTU_DT = 365.0               ! [days] VTU output every 1 yr (matches diag_table)
+
+! === 1D test enforcement (Huth et al. 2021) ===
+MPM_1D_TEST = True               ! Enforce analytical H/u on particles in hmask=3 cells
+MPM_1D_INFLOW_X = 200.0          ! [km] inflow boundary position
+MPM_1D_H0 = 600.0                ! [m] inflow boundary thickness
+MPM_1D_V0 = 300.0                ! [m yr-1] inflow boundary velocity

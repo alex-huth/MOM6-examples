@@ -1,17 +1,15 @@
-! MOM_input for the MPM Weertman steady-state test.
+! MOM_input for the MPM Weertman steady-state test (Huth et al. 2021).
 !
-! 500 km x 75 km floating ice shelf, 25 km cells.
-! Uniform thickness H = 500 m, no basal friction, Glen n = 3.
-! The SSA Weertman solution gives a linearly increasing velocity for
-! a uniform-thickness floating shelf with prescribed inflow.
+! 450 km x 75 km domain: 200 km extension + 250 km active, 5 km cells.
+! H0 = 600 m, v0 = 300 m/yr, A = 1.458e-25, no basal friction, Glen n = 3.
 !
 ! Run DAYMAX = 150 yr for steady-state comparison.
 
 ! === module MOM_domains ===
 REENTRANT_X = False
 REENTRANT_Y = False
-NIGLOBAL = 20             ! 20 cells x 25 km = 500 km
-NJGLOBAL = 3              ! 3 cells  x 25 km =  75 km
+NIGLOBAL = 90             ! 90 cells x 5 km = 450 km
+NJGLOBAL = 15             ! 15 cells x 5 km =  75 km
 
 ! === module MOM_verticalGrid ===
 NK = 1
@@ -30,7 +28,7 @@ AXIS_UNITS = "k"          ! kilometres
 SOUTHLAT = 0.0            ! [km]
 LENLAT = 75.0             ! [km]
 WESTLON = 0.0             ! [km]
-LENLON = 500.0            ! [km]
+LENLON = 450.0            ! [km]
 TOPO_CONFIG = "flat"
 MAXIMUM_DEPTH = 1500.0    ! [m]
 MINIMUM_DEPTH = 0.0       ! [m]

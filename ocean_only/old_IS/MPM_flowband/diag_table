@@ -1,0 +1,11 @@
+"MPM_flowband"
+1 1 1 0 0 0
+"ice_shelf", 36500, "days", 1, "days", "Time"
+
+#=====================
+# Ice shelf diagnostics (output every ~100 yr = 36500 days)
+#=====================
+"ice_shelf_model", "u_shelf",     "u_shelf",     "ice_shelf", "all", "mean", "none", 2
+"ice_shelf_model", "v_shelf",     "v_shelf",     "ice_shelf", "all", "mean", "none", 2
+"ice_shelf_model", "shelf_speed", "shelf_speed", "ice_shelf", "all", "mean", "none", 2
+"ice_shelf_model", "h_shelf",     "h_shelf",     "ice_shelf", "all", "mean", "none", 2
