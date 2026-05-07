@@ -4,21 +4,27 @@
 #override MPM_SPLIT_FACTOR = 1.5
 #override ICE_VELOCITY_TIMESTEP = 2628000.0
 #override MPM_N_PER_CELL = 4
-#override MPM_FLIP_ALPHA = 0
-#override MPM_TRANSFER = "FLIP"
+#override MPM_FLIP_ALPHA = 0.5
+#override MPM_TRANSFER = "APIC"
 
 
 #override CONJUGATE_GRADIENT_TOLERANCE = 1.0E-01
 !#override CONJUGATE_GRADIENT_TOLERANCE = 1.0E-05
 #override ICE_NONLINEAR_TOLERANCE = 1.0E-05
-#override NEWTON_AFTER_TOLERANCE = 1.0E-03
+#override NEWTON_AFTER_TOLERANCE = 1.0E-16
 #override NEWTON_ADAPT_CG_TOL = True
 
-#override MPM_BASIS='sMPM'
-#override MPM_REWEIGHT=True
+!#override MPM_BASIS='sMPM'
+!#override MPM_REWEIGHT=True
+
+#override MPM_BASIS='GIMP'
+#override MPM_REWEIGHT=False
+
 
 #override NJGLOBAL = 8
 #override LENLAT = 40.0
+
+!#override MPM_VTU_DT = 1
 
 ! #override CONJUGATE_GRADIENT_TOLERANCE = 1.0E-01
 ! #override ICE_NONLINEAR_TOLERANCE = 1.0E-07

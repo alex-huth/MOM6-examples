@@ -464,7 +464,7 @@ CONJUGATE_GRADIENT_TOLERANCE = 0.1 !   [nondim] default = 1.0E-06
                                 ! tolerance in CG solver, relative to initial residual
 ICE_NONLINEAR_TOLERANCE = 1.0E-05 !   [nondim] default = 1.0E-06
                                 ! nonlin tolerance in iterative velocity solve
-NEWTON_AFTER_TOLERANCE = 0.001  !   [none] default = 1.0E-05
+NEWTON_AFTER_TOLERANCE = 1.0E-16 !   [none] default = 1.0E-05
                                 ! Switch from Picard to Newton iterations in the nonlinear ice velocity solve
                                 ! when the fractional nonlinear residual falls below this tolerance.
 NEWTON_ADAPT_CG_TOL = True      !   [Boolean] default = True
@@ -562,22 +562,27 @@ MPM_N_PER_CELL = 4              ! default = 4
 MPM_SPLIT_FACTOR = 1.5          !   [nondim] default = 1.5
                                 ! Split particle when its length exceeds this factor times original length (Huth
                                 ! et al. 2021 use 1.5).
-MPM_FLIP_ALPHA = 0.0            !   [nondim] default = 1.0
+MPM_FLIP_ALPHA = 0.5            !   [nondim] default = 1.0
                                 ! FLIP blending coefficient; 1 = pure FLIP (no damping), 0 = pure PIC. Ignored
                                 ! when MPM_TRANSFER = APIC.
-MPM_TRANSFER = "FLIP"           ! default = "APIC"
+MPM_TRANSFER = "APIC"           ! default = "APIC"
                                 ! Particle-grid velocity transfer scheme. FLIP uses the FLIP/PIC blended update.
                                 ! APIC (Affine Particle-in-Cell) uses a local affine correction that eliminates
                                 ! angular momentum error without artificial viscosity.
-MPM_REWEIGHT = True             !   [Boolean] default = False
+MPM_REWEIGHT = False            !   [Boolean] default = False
                                 ! If true, multiply particle volumes by areaT/area_shelf_h when assembling the
                                 ! stiffness matrix (sMPM-style reweighting to fill cells). For GIMP, leave false
                                 ! so raw PVolume is used.
-MPM_BASIS = "sMPM"              ! default = "GIMP"
+MPM_BASIS = "GIMP"              ! default = "GIMP"
                                 ! Shape function basis for material points. 'GIMP' (default) uses generalized
                                 ! interpolation shape functions with extended support proportional to particle
                                 ! size (Bardenhagen & Kober 2004; Huth et al. 2021 §4.1). 'sMPM' uses standard
                                 ! bilinear tent functions with compact nodal support (4 nodes per particle).
+LENGTH_UPDATE = "L_CORNERS"     ! default = "L_CORNERS"
+                                ! Type of update for material point lengths. 'L_CORNERS' to use the
+                                ! corner/stretch updating scheme and 'L_STRAIN' to update by tracking strain
+                                ! (see Huth et al 2021). L_CORNERS can actually by used for all shape functions,
+                                ! not just GIMP.
 MPM_H_MIN = 1.0                 !   [m] default = 1.0
                                 ! Minimum ice thickness per particle.
 MPM_USE_CONSTANT_AGLEN = True   !   [Boolean] default = True

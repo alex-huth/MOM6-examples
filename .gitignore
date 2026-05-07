@@ -45,3 +45,5 @@ cryo-examples
 ice_null
 ocean_null
 /.agent-shell/
+*.vtu
+*.pvtu

@@ -151,15 +151,6 @@ USE_MPM = True                  !   [Boolean] default = False
                                 ! If true, use the simplified Material Point Method (sMPM) for Lagrangian
                                 ! thickness evolution and particle tracking. The existing SSA velocity solver is
                                 ! retained.
-MPM_REWEIGHT = True             !   [Boolean] default = False
-                                ! If true, multiply particle volumes by areaT/area_shelf_h when assembling the
-                                ! stiffness matrix (sMPM-style reweighting to fill cells). For GIMP, leave false
-                                ! so raw PVolume is used.
-MPM_BASIS = "sMPM"              ! default = "GIMP"
-                                ! Shape function basis for material points. 'GIMP' (default) uses generalized
-                                ! interpolation shape functions with extended support proportional to particle
-                                ! size (Bardenhagen & Kober 2004; Huth et al. 2021 §4.1). 'sMPM' uses standard
-                                ! bilinear tent functions with compact nodal support (4 nodes per particle).
 MPM_VTU_DT = 365.0              !   [days] default = 0.0
                                 ! Time interval for VTU particle output, in days. 0 disables VTU output.
 MPM_1D_TEST = True              !   [Boolean] default = False

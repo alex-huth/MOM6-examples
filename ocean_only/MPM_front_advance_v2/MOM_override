@@ -13,8 +13,11 @@
 #override NEWTON_AFTER_TOLERANCE = 1.0E-02
 #override NEWTON_ADAPT_CG_TOL = True
 
-#override MPM_BASIS='sMPM'
-#override MPM_REWEIGHT=True
+!#override MPM_BASIS='sMPM'
+!#override MPM_REWEIGHT=True
+
+#override MPM_BASIS='GIMP'
+#override MPM_REWEIGHT=False
 
 !#override LENGTH_UPDATE="L_STRAIN"
 
